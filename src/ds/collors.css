@@ -1,0 +1,20 @@
+/**
+ * Dark mode color tokens (from DarkMode.tokens.json).
+ * Use: var(--primaryText), var(--backgroud), etc.
+ */
+:root {
+  --backgroud: #0c0058;
+  --primaryText: #fff6d5;
+  --secondaryText: #f8e28b;
+  --primary-bth-backgraud: #fff6d5;
+  --primary-bth-houver-backgraud: #ffefb4;
+  --primary-bth-disable-backgraud: #fffcf3;
+  --primary-disable-bth-text: #0f006a;
+  --primary-bth-text: #1800ad;
+  --page-border: #ffeda8;
+  --page-border-text: #090235;
+
+  /* Conteúdo / tipografia (além dos tokens Figma) */
+  --text-color: #4d7ee8;
+  --text-secondary-color: #051d37;
+}

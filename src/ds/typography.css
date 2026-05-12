@@ -1,0 +1,99 @@
+/**
+ * Tipografia do design system.
+ * Fontes: carregar Montserrat + Montserrat Alternates no index.html.
+ */
+:root {
+  --font-sans: 'Montserrat', system-ui, 'Segoe UI', sans-serif;
+  --font-display: 'Montserrat Alternates', 'Montserrat', system-ui, sans-serif;
+}
+
+/* title — nome hero / título principal (Montserrat) */
+.ds-title {
+  color: var(--primaryText, #fff6d5);
+  text-align: center;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: var(--font-sans);
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+
+/* sub-title — subtítulo (Montserrat) */
+.ds-subtitle {
+  color: var(--secondaryText, #f8e28b);
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+/* section title — rótulos de secção (Montserrat Alternates) */
+.ds-section-title {
+  color: var(--text-color, #4d7ee8);
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: normal;
+}
+
+/* big text — destaque grande (Montserrat Alternates) */
+.ds-big-text {
+  color: var(--text-secondary-color, #051d37);
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+}
+
+/* Span sublinhado dentro de .ds-big-text (herda tamanho/peso/cor) */
+.ds-big-text .ds-big-text__underline {
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+}
+
+/* Mesmo estilo “big text” + sublinhado quando o span é usado isolado */
+.ds-big-text__underline {
+  color: var(--text-secondary-color, #051d37);
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+}
+
+@media (max-width: 480px) {
+  .ds-title {
+    font-size: clamp(26px, 8vw, 40px);
+  }
+
+  .ds-subtitle {
+    font-size: clamp(18px, 4.5vw, 24px);
+  }
+
+  .ds-section-title {
+    font-size: clamp(26px, 7vw, 40px);
+  }
+
+  .ds-big-text,
+  .ds-big-text__underline {
+    font-size: clamp(28px, 8vw, 48px);
+  }
+}
