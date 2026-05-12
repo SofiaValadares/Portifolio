@@ -1,0 +1,20 @@
+.header__container {
+  display: flex;
+  padding: 5px 20px 0 20px;
+  justify-content: start;
+  align-items: center;
+  align-self: stretch;
+  gap: 10px;
+}
+
+/* Google Sans Code + token (igual .ds-code-body, alinhado ao header) */
+.header__logo {
+  margin: 0;
+  font-family: var(--font-code);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--text-dark-color, #0c0058);
+  text-align: start;
+}

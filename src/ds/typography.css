@@ -1,10 +1,11 @@
 /**
  * Tipografia do design system.
- * Fontes: carregar Montserrat + Montserrat Alternates no index.html.
+ * Fontes: Montserrat, Montserrat Alternates, Google Sans Code (index.html).
  */
 :root {
   --font-sans: 'Montserrat', system-ui, 'Segoe UI', sans-serif;
   --font-display: 'Montserrat Alternates', 'Montserrat', system-ui, sans-serif;
+  --font-code: 'Google Sans Code', ui-monospace, 'Cascadia Code', 'Source Code Pro', monospace;
 }
 
 /* title — nome hero / título principal (Montserrat) */
@@ -79,6 +80,17 @@
   text-underline-position: from-font;
 }
 
+/* corpo / UI em fonte monoespaçada (Google Sans Code) */
+.ds-code-body {
+  color: var(--text-dark-color, #0c0058);
+  text-align: center;
+  font-family: var(--font-code);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
 @media (max-width: 480px) {
   .ds-title {
     font-size: clamp(26px, 8vw, 40px);
@@ -95,5 +107,9 @@
   .ds-big-text,
   .ds-big-text__underline {
     font-size: clamp(28px, 8vw, 48px);
+  }
+
+  .ds-code-body {
+    font-size: clamp(16px, 4.5vw, 20px);
   }
 }

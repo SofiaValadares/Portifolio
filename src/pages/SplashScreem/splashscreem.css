@@ -87,6 +87,12 @@
   overflow-x: hidden;
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.splash-screen__scroll::-webkit-scrollbar {
+  display: none;
 }
 
 .splash-screen__slide {
