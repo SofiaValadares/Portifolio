@@ -2,6 +2,24 @@
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
 
+  --portifolio-border: 3px;
+  --portifolio-outer-width: 90svw;
+  --portifolio-outer-height: 90svh;
+  --portifolio-padding-top: 5px;
+  --portifolio-header-height: 7svh;
+  --portifolio-inner-width: calc(
+    var(--portifolio-outer-width) - 2 * var(--portifolio-border)
+  );
+  --portifolio-flex-track-height: calc(
+    var(--portifolio-outer-height) - 2 * var(--portifolio-border) -
+      var(--portifolio-padding-top)
+  );
+  --portifolio-content-width: var(--portifolio-inner-width);
+  --portifolio-content-height: calc(
+    var(--portifolio-flex-track-height)  -
+      var(--portifolio-header-height)
+  );
+
   font-family: var(--sans);
   font-size: 16px;
   line-height: 1.5;

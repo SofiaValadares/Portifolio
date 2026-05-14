@@ -1,11 +1,18 @@
 import type { ComponentType, ReactNode } from 'react'
 
+/** Props passadas a cada componente de secção (vindos da lista). */
+export type SectionContentProps = {
+  anchorId: string
+  title: string
+}
+
 /**
  * Secção do portfólio.
- * O React não traz ícones nativos: `icon` é o JSX do ícone (ex. lucide-react, heroicons, SVG).
+ * `icon` é JSX (SVG); `anchorId` alimenta `#anchor` na nav e o `id` da `<section>`.
  */
 export interface SectionsPortifolioModel {
   title: string
+  anchorId: string
   icon: ReactNode
-  content: ComponentType<Record<string, never>>
+  content: ComponentType<SectionContentProps>
 }

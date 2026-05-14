@@ -1,0 +1,58 @@
+:root {
+  /* Figma: fundo do formato de página (gradiente vertical) */
+  --page-portfolio-format-bg-top: #b4ceea;
+  --page-portfolio-format-bg-bottom: #8ebdef;
+  --page-portfolio-format-pad-block-start: clamp(40px, 6.6vw, 100px);
+  --page-portfolio-format-pad-inline: clamp(20px, 5.3vw, 80px);
+  --page-portfolio-format-pad-block-end: clamp(56px, 10.6vw, 160px);
+  --page-portfolio-format-gap: clamp(32px, 5.3vw, 80px);
+}
+
+.page-portfolio-format {
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: var(--portifolio-content-height);
+  scroll-margin-top: calc(
+    var(--portifolio-header-height, 7svh) + var(--portifolio-gap, 10px) + 4px
+  );
+  padding: var(--page-portfolio-format-pad-block-start)
+    var(--page-portfolio-format-pad-inline)
+    var(--page-portfolio-format-pad-block-end)
+    var(--page-portfolio-format-pad-inline);
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--page-portfolio-format-gap);
+  background: linear-gradient(
+    180deg,
+    var(--page-portfolio-format-bg-top) 0%,
+    var(--page-portfolio-format-bg-bottom) 100%
+  );
+}
+
+.page-portfolio-format__header {
+  margin: 0;
+  width: 100%;
+  color: var(--text-color, #4d7ee8);
+  text-align: left;
+  font-family: var(--font-display, 'Montserrat Alternates', system-ui, sans-serif);
+  font-size: clamp(26px, 7vw, 40px);
+  font-style: italic;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.page-portfolio-format__header :where(h1, h2, h3, h4, h5, h6) {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+}
+
+.page-portfolio-format__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  min-width: 0;
+}
