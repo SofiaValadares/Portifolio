@@ -92,14 +92,12 @@ export default function Contatos({ anchorId, title }: SectionContentProps) {
               />
             </div>
 
-            <div className="contatos__name-tag" aria-label="Sofia Valadares Cavalcanti">
-              <p className="contatos__name-tag-line">
+            <p className="contatos__name-tag" aria-label="Sofia Valadares Cavalcanti">
+              <span className="contatos__name-tag-line">
                 {'<Sof'}
-                <span className="contatos__name-tag-accent">/</span>a&gt;{' '}
-              </p>
-              <p className="contatos__name-tag-line">Valadares</p>
-              <p className="contatos__name-tag-line">Cavalcanti</p>
-            </div>
+                <span className="contatos__name-tag-accent">/</span>a&gt; Valadares Cavalcanti
+              </span>
+            </p>
           </div>
         </div>
       </div>

@@ -1,5 +1,9 @@
-/* Altura fixa = 1 “página” do portfólio */
+/* ── Secção (1 viewport do portfólio) ───────────────────────────── */
 .contatos.page-portfolio-format {
+  --contatos-shadow: 16px;
+  --contatos-radius: clamp(1.25rem, 5vw, 1.75rem);
+  /* quanto a tag entra na foto (Figma ≈ 6.25rem / 100px) */
+  --contatos-tag-overlap: clamp(14rem, 26vw, 18rem);
   height: var(--portifolio-content-height);
   min-height: var(--portifolio-content-height);
   max-height: var(--portifolio-content-height);
@@ -13,28 +17,26 @@
   display: flex;
 }
 
+/* ── Grid 40% texto | 60% foto ─────────────────────────────────── */
 .contatos__content {
   display: grid;
   grid-template-columns: minmax(0, 40%) minmax(0, 60%);
   align-items: stretch;
   gap: clamp(1rem, 3vw, 2.5rem);
+  flex: 1 1 auto;
   width: 100%;
   height: 100%;
   min-height: 0;
   min-width: 0;
-  flex: 1 1 auto;
 }
 
+/* ── Coluna esquerda ───────────────────────────────────────────── */
 .contatos__left {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   justify-content: space-between;
-  width: 100%;
-  max-width: 100%;
-  height: 100%;
+  align-items: flex-start;
   min-height: 0;
-  min-width: 0;
 }
 
 .contatos__intro {
@@ -43,10 +45,7 @@
   color: var(--text-dark-color);
   font-family: var(--font-code);
   font-size: clamp(0.875rem, 2.5vw, 1.25rem);
-  font-style: normal;
-  font-weight: 400;
   line-height: 1.35;
-  text-align: start;
 }
 
 .contatos__actions {
@@ -56,81 +55,46 @@
   gap: 10px;
 }
 
+/* ── Coluna direita: foto + tag (Figma 86:2665) ──────────────────── */
 .contatos__right {
   display: flex;
-  align-items: stretch;
-  align-self: stretch;
-  width: 100%;
   min-width: 0;
-  height: 100%;
+  min-height: 0;
 }
 
 .contatos__visual {
-  --contatos-tag-overlap: clamp(3.5rem, 6vw, 6.25rem);
-  --contatos-photo-shadow: clamp(12px, 1.2vw, 18px);
-  --contatos-photo-radius-max: 7rem;
-  --contatos-photo-radius-ratio: 0.26;
-
   display: flex;
-  flex: 1 1 auto;
-  align-items: stretch;
-  align-self: stretch;
-  box-sizing: border-box;
+  align-items: flex-end;
+  gap: 0;
   width: 100%;
-  max-width: 100%;
   height: 100%;
-  min-width: 0;
-  min-height: 0;
-  padding-inline-end: var(--contatos-photo-shadow);
-  padding-block-end: var(--contatos-photo-shadow);
+  padding: 0 var(--contatos-shadow) var(--contatos-shadow) 0;
+  box-sizing: border-box;
 }
 
 .contatos__photo-wrap {
-  container-type: size;
-  container-name: contatos-photo;
-  position: relative;
-  z-index: 0;
-  flex: 1 1 auto;
-  align-self: stretch;
-  width: 100%;
-  max-width: 100%;
-  height: 100%;
-  min-height: 100%;
+  flex: 1;
   min-width: 0;
+  height: 100%;
+  overflow: hidden;
+  border-radius: var(--contatos-radius);
   margin-inline-end: calc(-1 * var(--contatos-tag-overlap));
+  box-shadow: var(--contatos-shadow) var(--contatos-shadow) 0 0
+    var(--backgroud-secondary-color, #8ebdef);
 }
 
 .contatos__photo {
   display: block;
-  box-sizing: border-box;
   width: 100%;
   height: 100%;
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: min(
-    var(--contatos-photo-radius-max),
-    calc(100cqw * var(--contatos-photo-radius-ratio))
-  );
   object-fit: cover;
   object-position: center 18%;
-  box-shadow: var(--contatos-photo-shadow) var(--contatos-photo-shadow) 0 0
-    var(--backgroud-secondary-color, #8ebdef);
-}
-
-@supports not (width: 1cqw) {
-  .contatos__photo {
-    border-radius: min(var(--contatos-photo-radius-max), 26%);
-  }
 }
 
 .contatos__name-tag {
   position: relative;
   z-index: 1;
   flex-shrink: 0;
-  align-self: flex-start;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   margin: 0;
   padding: 10px;
   background: var(--text-dark-color);
@@ -138,26 +102,20 @@
 }
 
 .contatos__name-tag-line {
-  margin: 0;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-family: var(--font-code);
-  font-size: clamp(0.875rem, 1.6vw, 3rem);
-  font-style: normal;
-  font-weight: 400;
+  font-size: clamp(0.75rem, 1.4vw, 1.5rem);
   line-height: normal;
-  white-space: pre;
+  white-space: nowrap;
 }
 
 .contatos__name-tag-accent {
   color: inherit;
 }
 
-@media (min-width: 900px) {
-  .contatos__visual {
-    --contatos-photo-radius-max: 7.5rem;
-    --contatos-photo-radius-ratio: 0.28;
-  }
-}
-
+/* ── Mobile ────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .contatos.page-portfolio-format {
     height: auto;
@@ -166,6 +124,7 @@
     overflow: visible;
     padding-block: var(--page-portfolio-format-pad-block-start)
       var(--page-portfolio-format-pad-block-end);
+    --contatos-shadow: 14px;
   }
 
   .contatos__content {
@@ -175,9 +134,6 @@
   }
 
   .contatos__left {
-    flex: none;
-    max-width: 100%;
-    height: auto;
     gap: clamp(1.5rem, 4vw, 2rem);
   }
 
@@ -187,38 +143,24 @@
 
   .contatos__right {
     order: -1;
-    width: 100%;
-    height: auto;
   }
 
   .contatos__visual {
     flex-direction: column;
     align-items: center;
-    max-width: 100%;
     height: auto;
-    padding-inline-end: 0;
-    padding-block-end: 0;
+    padding: 0;
     --contatos-tag-overlap: 0;
-    --contatos-photo-shadow: clamp(10px, 3vw, 16px);
   }
 
   .contatos__photo-wrap {
-    container-type: normal;
-    flex: none;
-    align-self: stretch;
     width: min(20rem, 88vw);
     height: min(72svh, 32rem);
     margin-inline-end: 0;
   }
 
-  .contatos__photo {
-    border-radius: min(6rem, 26%);
-    box-shadow: var(--contatos-photo-shadow) var(--contatos-photo-shadow) 0 0
-      var(--backgroud-secondary-color, #8ebdef);
-  }
-
   .contatos__name-tag {
-    margin-top: calc(-1 * clamp(2.5rem, 8vw, 4rem));
     align-self: flex-end;
+    margin-top: 0.5rem;
   }
 }
