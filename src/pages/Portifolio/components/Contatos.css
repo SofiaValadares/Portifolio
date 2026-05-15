@@ -1,3 +1,224 @@
-.contatos {
-  /* estilos específicos da secção Contatos */
+/* Altura fixa = 1 “página” do portfólio */
+.contatos.page-portfolio-format {
+  height: var(--portifolio-content-height);
+  min-height: var(--portifolio-content-height);
+  max-height: var(--portifolio-content-height);
+  overflow: hidden;
+  justify-content: flex-start;
+}
+
+.contatos.page-portfolio-format .page-portfolio-format__body {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+}
+
+.contatos__content {
+  display: grid;
+  grid-template-columns: minmax(0, 40%) minmax(0, 60%);
+  align-items: stretch;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.contatos__left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+}
+
+.contatos__intro {
+  margin: 0;
+  max-width: 32rem;
+  color: var(--text-dark-color);
+  font-family: var(--font-code);
+  font-size: clamp(0.875rem, 2.5vw, 1.25rem);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.35;
+  text-align: start;
+}
+
+.contatos__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.contatos__right {
+  display: flex;
+  align-items: stretch;
+  align-self: stretch;
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+}
+
+.contatos__visual {
+  --contatos-tag-overlap: clamp(3.5rem, 6vw, 6.25rem);
+  --contatos-photo-shadow: clamp(12px, 1.2vw, 18px);
+  --contatos-photo-radius-max: 7rem;
+  --contatos-photo-radius-ratio: 0.26;
+
+  display: flex;
+  flex: 1 1 auto;
+  align-items: stretch;
+  align-self: stretch;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  padding-inline-end: var(--contatos-photo-shadow);
+  padding-block-end: var(--contatos-photo-shadow);
+}
+
+.contatos__photo-wrap {
+  container-type: size;
+  container-name: contatos-photo;
+  position: relative;
+  z-index: 0;
+  flex: 1 1 auto;
+  align-self: stretch;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  min-height: 100%;
+  min-width: 0;
+  margin-inline-end: calc(-1 * var(--contatos-tag-overlap));
+}
+
+.contatos__photo {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: min(
+    var(--contatos-photo-radius-max),
+    calc(100cqw * var(--contatos-photo-radius-ratio))
+  );
+  object-fit: cover;
+  object-position: center 18%;
+  box-shadow: var(--contatos-photo-shadow) var(--contatos-photo-shadow) 0 0
+    var(--backgroud-secondary-color, #8ebdef);
+}
+
+@supports not (width: 1cqw) {
+  .contatos__photo {
+    border-radius: min(var(--contatos-photo-radius-max), 26%);
+  }
+}
+
+.contatos__name-tag {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+  padding: 10px;
+  background: var(--text-dark-color);
+  color: var(--backgroud-primary-color);
+}
+
+.contatos__name-tag-line {
+  margin: 0;
+  font-family: var(--font-code);
+  font-size: clamp(0.875rem, 1.6vw, 3rem);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  white-space: pre;
+}
+
+.contatos__name-tag-accent {
+  color: inherit;
+}
+
+@media (min-width: 900px) {
+  .contatos__visual {
+    --contatos-photo-radius-max: 7.5rem;
+    --contatos-photo-radius-ratio: 0.28;
+  }
+}
+
+@media (max-width: 768px) {
+  .contatos.page-portfolio-format {
+    height: auto;
+    min-height: var(--portifolio-content-height);
+    max-height: none;
+    overflow: visible;
+    padding-block: var(--page-portfolio-format-pad-block-start)
+      var(--page-portfolio-format-pad-block-end);
+  }
+
+  .contatos__content {
+    grid-template-columns: 1fr;
+    height: auto;
+    flex: none;
+  }
+
+  .contatos__left {
+    flex: none;
+    max-width: 100%;
+    height: auto;
+    gap: clamp(1.5rem, 4vw, 2rem);
+  }
+
+  .contatos__intro {
+    max-width: 100%;
+  }
+
+  .contatos__right {
+    order: -1;
+    width: 100%;
+    height: auto;
+  }
+
+  .contatos__visual {
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    height: auto;
+    padding-inline-end: 0;
+    padding-block-end: 0;
+    --contatos-tag-overlap: 0;
+    --contatos-photo-shadow: clamp(10px, 3vw, 16px);
+  }
+
+  .contatos__photo-wrap {
+    container-type: normal;
+    flex: none;
+    align-self: stretch;
+    width: min(20rem, 88vw);
+    height: min(72svh, 32rem);
+    margin-inline-end: 0;
+  }
+
+  .contatos__photo {
+    border-radius: min(6rem, 26%);
+    box-shadow: var(--contatos-photo-shadow) var(--contatos-photo-shadow) 0 0
+      var(--backgroud-secondary-color, #8ebdef);
+  }
+
+  .contatos__name-tag {
+    margin-top: calc(-1 * clamp(2.5rem, 8vw, 4rem));
+    align-self: flex-end;
+  }
 }

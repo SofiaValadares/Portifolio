@@ -63,6 +63,11 @@
   min-height: 0;
 }
 
+/* Sem espaço entre título e corpo (ex.: Contatos) */
+.page-portfolio-format--no-gap {
+  gap: 0;
+}
+
 /* Secções com muito conteúdo (ex.: cards) */
 .page-portfolio-format--tall {
   justify-content: flex-start;

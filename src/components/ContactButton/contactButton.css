@@ -1,0 +1,61 @@
+.contactButton {
+  --contact-button-gap: 23px;
+  --contact-button-pad-block: 2px;
+  --contact-button-pad-inline: 10px;
+  --contact-button-transition: 0.22s ease;
+
+  display: inline-flex;
+  align-items: center;
+  gap: var(--contact-button-gap);
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  color: var(--text-dark-color);
+  box-shadow: 0 4px 4px 0 transparent;
+  font-family: var(--font-code);
+  font-size: clamp(0.875rem, 2.5vw, 1.25rem);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+  transition:
+    background-color var(--contact-button-transition),
+    color var(--contact-button-transition),
+    box-shadow var(--contact-button-transition),
+    padding var(--contact-button-transition);
+}
+
+.contactButton:hover {
+  padding: var(--contact-button-pad-block) var(--contact-button-pad-inline);
+  background: var(--text-dark-color);
+  color: var(--text-color);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.contactButton:focus-visible {
+  outline: 2px solid var(--text-color);
+  outline-offset: 2px;
+}
+
+.contactButton:active {
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.contactButton__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+}
+
+.contactButton__icon :where(svg) {
+  width: 1.25em;
+  height: 1.25em;
+}
+
+.contactButton__label {
+  color: inherit;
+}
