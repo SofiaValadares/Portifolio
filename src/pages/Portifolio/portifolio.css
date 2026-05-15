@@ -28,6 +28,7 @@
   background-color: var(--page-border);
   border: var(--portifolio-border) solid var(--page-border);
   padding-top: var(--portifolio-padding-top);
+  gap: 0;
 }
 
 .portifolio-screem__content {

@@ -49,3 +49,32 @@ export function IconAtSign({ className }: IconProps) {
     </svg>
   )
 }
+
+export function IconCode({ className }: IconProps) {
+  return (
+    <svg {...iconAttrs} className={className}>
+      <polyline points="16 18 22 12 16 6" />
+      <polyline points="8 6 2 12 8 18" />
+    </svg>
+  )
+}
+
+export function IconDatabase({ className }: IconProps) {
+  return (
+    <svg {...iconAttrs} className={className}>
+      <ellipse cx="12" cy="5" rx="9" ry="3" />
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5" />
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3" />
+    </svg>
+  )
+}
+
+export function IconBarChart({ className }: IconProps) {
+  return (
+    <svg {...iconAttrs} className={className}>
+      <line x1="12" y1="20" x2="12" y2="10" />
+      <line x1="18" y1="20" x2="18" y2="4" />
+      <line x1="6" y1="20" x2="6" y2="14" />
+    </svg>
+  )
+}

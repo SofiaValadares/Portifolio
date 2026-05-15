@@ -1,3 +1,29 @@
-.expertises {
-  /* estilos específicos da secção Expertises */
+.expertises__content {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex-shrink: 0;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  width: 100%;
+  min-width: 0;
+}
+
+.expertises__intro {
+  width: 100%;
+  margin: 0;
+}
+
+.expertises__cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: auto;
+  gap: clamp(0.625rem, 1.5vw, 1rem);
+  width: 100%;
+  align-items: stretch;
+}
+
+@media (max-width: 900px) {
+  .expertises__cards {
+    grid-template-columns: 1fr;
+  }
 }

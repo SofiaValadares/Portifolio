@@ -1,0 +1,134 @@
+.expertiseCard__conteiner {
+  --expertise-card-pad-inline: 0.625rem;
+  --expertise-card-pad-block-end: 0.625rem;
+  --expertise-card-gap: 0.625rem;
+  --expertise-card-header-icon-size: 1.25em;
+  --expertise-card-lang-icon-size: 2em;
+  --expertise-card-lang-gap: 0.75em;
+  --expertise-card-header-pad-block: 0.375em;
+  --expertise-card-header-pad-inline: 0.75em;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  height: auto;
+  min-height: auto;
+  padding: 0 var(--expertise-card-pad-inline) var(--expertise-card-pad-block-end);
+  gap: var(--expertise-card-gap);
+  border-radius: 0.625rem;
+  border: 2px solid var(--text-secondary-color);
+  background: var(--backgroud-primary-color);
+  box-sizing: border-box;
+}
+
+.expertiseCard__conteiner:hover {
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.expertiseCard__header {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  margin: 0;
+  padding: var(--expertise-card-header-pad-block) var(--expertise-card-header-pad-inline);
+  background: var(--text-secondary-color);
+  color: var(--primaryText);
+  font-family: var(--font-code);
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.expertiseCard__header-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--expertise-card-header-icon-size);
+  height: var(--expertise-card-header-icon-size);
+}
+
+.expertiseCard__header-icon :where(svg) {
+  width: 100%;
+  height: 100%;
+}
+
+.expertiseCard__title {
+  margin: 0;
+  font: inherit;
+}
+
+.expertiseCard__description {
+  margin: 0;
+  width: 100%;
+  flex: 1 1 auto;
+  color: var(--text-secondary-color);
+  font-family: var(--font-code);
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.35;
+  text-align: start;
+}
+
+.expertiseCard__languages {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--expertise-card-lang-gap);
+  margin: auto 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.expertiseCard__language-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--expertise-card-lang-icon-size);
+  height: var(--expertise-card-lang-icon-size);
+  cursor: default;
+}
+
+.expertiseCard__language-icon::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 0.4em);
+  left: 50%;
+  z-index: 1;
+  padding: 0.25em 0.5em;
+  border-radius: 0.25em;
+  background: var(--text-secondary-color);
+  color: var(--primaryText);
+  font-family: var(--font-code);
+  font-size: 0.75em;
+  font-weight: 400;
+  line-height: 1.2;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(-50%) translateY(0.15em);
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+}
+
+.expertiseCard__language-icon:hover::after,
+.expertiseCard__language-icon:focus-visible::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.expertiseCard__language-icon:focus-visible {
+  outline: 2px solid var(--text-secondary-color);
+  outline-offset: 2px;
+  border-radius: 0.2em;
+}
+
+.expertiseCard__language-icon :where(svg, img) {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}

@@ -6,6 +6,9 @@
   --font-sans: 'Montserrat', system-ui, 'Segoe UI', sans-serif;
   --font-display: 'Montserrat Alternates', 'Montserrat', system-ui, sans-serif;
   --font-code: 'Google Sans Code', ui-monospace, 'Cascadia Code', 'Source Code Pro', monospace;
+
+  --ds-big-text-size: 40px;
+  --ds-big-text-size-fluid: clamp(26px, 6.5vw, 40px);
 }
 
 /* title — nome hero / título principal (Montserrat) */
@@ -45,33 +48,32 @@
 /* big text — destaque grande (Montserrat Alternates) */
 .ds-big-text {
   color: var(--text-secondary-color, #051d37);
-  text-align: center;
+  text-align: start;
   font-family: var(--font-display);
-  font-size: 48px;
+  font-size: var(--ds-big-text-size);
   font-style: normal;
   font-weight: 800;
-  line-height: normal;
-}
+  line-height: 1.15;
 
-/* Span sublinhado dentro de .ds-big-text (herda tamanho/peso/cor) */
-.ds-big-text .ds-big-text__underline {
-  text-decoration-line: underline;
-  text-decoration-style: solid;
-  text-decoration-skip-ink: none;
-  text-decoration-thickness: auto;
-  text-underline-offset: auto;
-  text-underline-position: from-font;
+  span {
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+  }
 }
 
 /* Mesmo estilo “big text” + sublinhado quando o span é usado isolado */
 .ds-big-text__underline {
   color: var(--text-secondary-color, #051d37);
-  text-align: center;
+  text-align: start;
   font-family: var(--font-display);
-  font-size: 48px;
+  font-size: var(--ds-big-text-size);
   font-style: normal;
   font-weight: 800;
-  line-height: normal;
+  line-height: 1.15;
   text-decoration-line: underline;
   text-decoration-style: solid;
   text-decoration-skip-ink: none;
@@ -106,7 +108,7 @@
 
   .ds-big-text,
   .ds-big-text__underline {
-    font-size: clamp(28px, 8vw, 48px);
+    font-size: var(--ds-big-text-size-fluid);
   }
 
   .ds-code-body {

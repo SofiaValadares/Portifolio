@@ -6,7 +6,7 @@
   --portifolio-outer-width: 90svw;
   --portifolio-outer-height: 90svh;
   --portifolio-padding-top: 5px;
-  --portifolio-header-height: 7svh;
+  --portifolio-header-height: 5svh;
   --portifolio-inner-width: calc(
     var(--portifolio-outer-width) - 2 * var(--portifolio-border)
   );
