@@ -80,6 +80,15 @@ export default function Contatos({ anchorId, title }: SectionContentProps) {
 
         <div className="contatos__right">
           <div className="contatos__visual">
+            <p className="contatos__name-tag" aria-label="Sofia Valadares Cavalcanti">
+              <span className="contatos__name-tag-line">
+                {'<Sof'}
+                <span className="contatos__name-tag-accent">/</span>a&gt;
+              </span>
+              <span className="contatos__name-tag-line">Valadares</span>
+              <span className="contatos__name-tag-line">Cavalcanti</span>
+            </p>
+
             <div className="contatos__photo-wrap">
               <img
                 className="contatos__photo"
@@ -91,13 +100,6 @@ export default function Contatos({ anchorId, title }: SectionContentProps) {
                 decoding="async"
               />
             </div>
-
-            <p className="contatos__name-tag" aria-label="Sofia Valadares Cavalcanti">
-              <span className="contatos__name-tag-line">
-                {'<Sof'}
-                <span className="contatos__name-tag-accent">/</span>a&gt; Valadares Cavalcanti
-              </span>
-            </p>
           </div>
         </div>
       </div>

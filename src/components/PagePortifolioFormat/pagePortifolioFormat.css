@@ -2,9 +2,8 @@
   /* Figma: fundo do formato de página (gradiente vertical) */
   --page-portfolio-format-bg-top: #b4ceea;
   --page-portfolio-format-bg-bottom: #8ebdef;
-  --page-portfolio-format-pad-block-start: clamp(40px, 6.6vw, 100px);
+  --page-portfolio-format-pad-block: clamp(20px, 5.3vw, 80px);
   --page-portfolio-format-pad-inline: clamp(20px, 5.3vw, 80px);
-  --page-portfolio-format-pad-block-end: clamp(56px, 10.6vw, 160px);
   --page-portfolio-format-gap: clamp(32px, 5.3vw, 80px);
 }
 
@@ -19,9 +18,9 @@
   scroll-margin-top: calc(
     var(--portifolio-header-height, 7svh) + var(--portifolio-gap, 10px) + 4px
   );
-  padding: var(--page-portfolio-format-pad-block-start)
+  padding: var(--page-portfolio-format-pad-block)
     var(--page-portfolio-format-pad-inline)
-    var(--page-portfolio-format-pad-block-end)
+    var(--page-portfolio-format-pad-block)
     var(--page-portfolio-format-pad-inline);
   flex-direction: column;
   justify-content: center;
