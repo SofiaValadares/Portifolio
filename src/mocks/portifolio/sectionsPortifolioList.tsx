@@ -1,14 +1,14 @@
-import type { SectionsPortifolioModel } from './SectionsPortifolioModel'
-import Contatos from '../pages/Portifolio/components/Contatos'
-import Experiencia from '../pages/Portifolio/components/Experiencia'
-import Expertises from '../pages/Portifolio/components/Expertises'
-import Projetos from '../pages/Portifolio/components/Projetos'
+import type { SectionsPortifolioModel } from '../../models/SectionsPortifolioModel'
+import Contatos from '../../pages/Portifolio/components/Contatos'
+import Experiencia from '../../pages/Portifolio/components/Experiencia'
+import Expertises from '../../pages/Portifolio/components/Expertises'
+import Projetos from '../../pages/Portifolio/components/Projetos'
 import {
   IconAtSign,
   IconBriefcase,
   IconCheckSquare,
   IconLayers,
-} from './sectionIcons'
+} from '../../models/sectionIcons'
 
 export const sectionsPortifolioList: SectionsPortifolioModel[] = [
   {

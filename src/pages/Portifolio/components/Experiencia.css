@@ -1,3 +1,20 @@
-.experiencia {
-  /* estilos específicos da secção Experiência */
+.experiencia.page-portfolio-format {
+  height: auto;
+  min-height: var(--portifolio-content-height);
+  justify-content: flex-start;
+}
+
+.experiencia__list {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: clamp(0.75rem, 2vw, 1rem);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.experiencia__list > li {
+  margin: 0;
 }

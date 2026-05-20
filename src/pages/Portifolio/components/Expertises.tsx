@@ -1,7 +1,7 @@
 import type { SectionContentProps } from '../../../models/SectionsPortifolioModel'
 import PagePortifolioFormat from '../../../components/PagePortifolioFormat'
 import { ExpertiseCard } from '../../../components/ExpertiseCard'
-import { expertisesCardsData } from './expertisesCardsData'
+import { expertisesCardsData } from '../../../mocks'
 import './Expertises.css'
 
 export default function Expertises({ anchorId, title }: SectionContentProps) {

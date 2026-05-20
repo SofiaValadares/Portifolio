@@ -2,27 +2,9 @@ import {
   IconBarChart,
   IconCode,
   IconDatabase,
-} from '../../../models/sectionIcons'
-import type { ReactNode } from 'react'
-import type { LanguegeModel } from '../../../models/LanguegeModel'
-
-export type ExpertiseCardData = {
-  icon: ReactNode
-  title: string
-  description: string
-  languegesList: LanguegeModel[]
-}
-
-function langLogo(file: string): ReactNode {
-  return (
-    <img
-      src={`/languegesLogos/${file}`}
-      alt=""
-      loading="lazy"
-      decoding="async"
-    />
-  )
-}
+} from '../../models/sectionIcons'
+import type { ExpertiseCardData } from '../../models/ExpertiseCardModel'
+import { langLogo } from '../shared/langLogo'
 
 export const expertisesCardsData: ExpertiseCardData[] = [
   {

@@ -5,7 +5,7 @@ import {
   useRef,
   useState,
 } from 'react'
-import { sectionsPortifolioList } from '../../models/sectionsPortifolioList'
+import { sectionsPortifolioList } from '../../mocks/portifolio/sectionsPortifolioList'
 import './portifolio.css'
 import Header from './components/Header'
 
