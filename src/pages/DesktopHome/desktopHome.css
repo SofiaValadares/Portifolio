@@ -1,0 +1,204 @@
+/* Área de trabalho — ícone sempre visível no wallpaper */
+.desktop-home {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  padding: clamp(1.25rem, 4vw, 2.5rem) 0 0;
+  box-sizing: border-box;
+}
+
+.desktop-home__workspace {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding: 0 clamp(1.25rem, 4vw, 2.5rem) clamp(0.75rem, 2vw, 1.25rem);
+}
+
+.desktop-home__apps {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: clamp(1rem, 3vw, 2rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.desktop-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 5.5rem;
+  padding: 0.35rem;
+  border: none;
+  border-radius: 0.75rem;
+  background: transparent;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.desktop-app:hover {
+  background: var(--overlay-35);
+  transform: translateY(-2px);
+}
+
+.desktop-app:focus-visible {
+  outline: 2px solid var(--page-border);
+  outline-offset: 4px;
+}
+
+.desktop-app__icon {
+  display: grid;
+  place-items: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  min-width: 4.5rem;
+  min-height: 4.5rem;
+  border-radius: 1rem;
+  background-color: var(--text-secondary-color);
+  background-image: linear-gradient(
+    165deg,
+    var(--text-color) 0%,
+    var(--backgroud) 100%
+  );
+  border: 2px solid var(--page-border);
+  box-shadow:
+    0 10px 24px var(--overlay-65),
+    inset 0 1px 0 color-mix(in srgb, var(--page-border) 35%, transparent);
+  box-sizing: border-box;
+}
+
+.desktop-app__code {
+  display: block;
+  margin: 0;
+  padding: 0;
+  color: var(--primaryText);
+  font-family: var(--font-code, 'Google Sans Code', ui-monospace, monospace);
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-shadow: 0 2px 4px color-mix(in srgb, var(--text-dark-color) 80%, transparent);
+}
+
+.desktop-app__label {
+  display: block;
+  max-width: 100%;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.35rem;
+  background-color: var(--overlay-65);
+  color: var(--primaryText);
+  font-family: var(--font-sans, system-ui, sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  text-shadow: 0 1px 3px color-mix(in srgb, var(--text-dark-color) 75%, transparent);
+}
+
+.desktop-app:hover .desktop-app__icon {
+  background-color: var(--backgroud);
+  border-color: var(--secondaryText);
+}
+
+.desktop-app:hover .desktop-app__label {
+  background-color: var(--overlay-80);
+}
+
+/* Dock / footer — largura total, botões compactos */
+.desktop-dock {
+  flex-shrink: 0;
+  width: 100%;
+  margin-top: auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.desktop-dock__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+  margin: 0;
+  padding: 0.3rem 0.5rem calc(0.35rem + env(safe-area-inset-bottom, 0px));
+  list-style: none;
+  box-sizing: border-box;
+  border-radius: 0;
+  border-top: 1px solid var(--dock-bar-border);
+  background: var(--dock-bar-bg);
+  box-shadow:
+    0 -8px 24px var(--overlay-35),
+    inset 0 1px 0 color-mix(in srgb, var(--page-border) 20%, transparent);
+  backdrop-filter: blur(12px);
+}
+
+.desktop-dock__list > li {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.desktop-dock__action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;
+  width: auto;
+  padding: 0.2rem 0.25rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: var(--dock-icon-color);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.desktop-dock__action:hover:not(:disabled) {
+  background: var(--dock-action-hover);
+  transform: translateY(-1px);
+}
+
+.desktop-dock__action:focus-visible {
+  outline: 2px solid var(--dock-icon-color);
+  outline-offset: 3px;
+}
+
+.desktop-dock__icon {
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 0.4rem;
+  background: var(--dock-icon-bg);
+  border: 1px solid var(--dock-icon-border);
+  color: var(--dock-icon-color);
+}
+
+.desktop-dock__icon :where(svg) {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+.desktop-dock__label {
+  font-family: var(--font-sans, system-ui, sans-serif);
+  font-size: 0.5625rem;
+  font-weight: 600;
+  line-height: 1.15;
+  text-align: center;
+  color: var(--dock-label-color);
+  text-shadow: var(--dock-label-shadow);
+}

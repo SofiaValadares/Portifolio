@@ -1,0 +1,118 @@
+.route-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+.route-stage > .app-shell,
+.route-stage > .app-shell__portfolio {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+/* Entrada por rota (fallback quando View Transitions não existir) */
+.route-stage[data-variant='desktop'] {
+  animation: route-desktop-in 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.route-stage[data-variant='portfolio'] {
+  animation: route-portfolio-in 0.48s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.route-stage[data-variant='splash'] {
+  animation: route-splash-in 0.35s ease-out both;
+}
+
+@keyframes route-desktop-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes route-portfolio-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes route-splash-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* View Transitions API — troca entre rotas */
+@supports (view-transition-name: none) {
+  ::view-transition-old(root) {
+    animation: vt-route-out 0.32s cubic-bezier(0.4, 0, 1, 1) both;
+  }
+
+  ::view-transition-new(root) {
+    animation: vt-route-in 0.38s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .route-stage[data-variant='portfolio'] {
+    view-transition-name: portfolio-stage;
+  }
+
+  .route-stage[data-variant='desktop'] {
+    view-transition-name: desktop-stage;
+  }
+
+  .route-stage[data-variant='splash'] {
+    view-transition-name: splash-stage;
+  }
+}
+
+@keyframes vt-route-out {
+  from {
+    opacity: 1;
+    transform: none;
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+}
+
+@keyframes vt-route-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .route-stage[data-variant] {
+    animation: none;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.01ms;
+  }
+}

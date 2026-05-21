@@ -2,12 +2,19 @@ import {
   useCallback,
   useEffect,
   useMemo,
-  useRef,
   useState,
 } from 'react'
+import { PagePortifolioShell } from '../../components/PagePortifolioFormat'
+import type { BrowserWindowControls } from '../../components/PagePortifolioFormat'
 import { sectionsPortifolioList } from '../../mocks/portifolio/sectionsPortifolioList'
 import './portifolio.css'
-import Header from './components/Header'
+
+export type PortifolioProps = {
+  scrollRoot: HTMLElement | null
+  onScrollViewportRef?: (element: HTMLDivElement | null) => void
+  isMaximized?: boolean
+  windowControls: BrowserWindowControls
+}
 
 function resolveAnchorFromHash(): string | null {
   const id = window.location.hash.slice(1)
@@ -15,8 +22,12 @@ function resolveAnchorFromHash(): string | null {
   return sectionsPortifolioList.some((s) => s.anchorId === id) ? id : null
 }
 
-export default function Portifolio() {
-  const contentRef = useRef<HTMLDivElement>(null)
+export default function Portifolio({
+  scrollRoot,
+  onScrollViewportRef,
+  isMaximized = false,
+  windowControls,
+}: PortifolioProps) {
   const defaultAnchor = useMemo(
     () => sectionsPortifolioList[0]?.anchorId ?? '',
     [],
@@ -28,9 +39,8 @@ export default function Portifolio() {
   })
 
   const syncActiveFromScroll = useCallback(() => {
-    const root = contentRef.current
-    if (!root) return
-    const rootRect = root.getBoundingClientRect()
+    if (!scrollRoot) return
+    const rootRect = scrollRoot.getBoundingClientRect()
     const focusY = rootRect.top + rootRect.height * 0.22
     let best = defaultAnchor
     let bestScore = -1
@@ -54,14 +64,13 @@ export default function Portifolio() {
       }
     }
     setActiveAnchorId((prev) => (prev === best ? prev : best))
-  }, [defaultAnchor])
+  }, [defaultAnchor, scrollRoot])
 
   useEffect(() => {
-    const root = contentRef.current
-    if (!root) return
+    if (!scrollRoot) return
 
     syncActiveFromScroll()
-    root.addEventListener('scroll', syncActiveFromScroll, { passive: true })
+    scrollRoot.addEventListener('scroll', syncActiveFromScroll, { passive: true })
 
     const onHash = () => {
       const id = resolveAnchorFromHash()
@@ -70,29 +79,35 @@ export default function Portifolio() {
     window.addEventListener('hashchange', onHash)
 
     const ro = new ResizeObserver(() => syncActiveFromScroll())
-    ro.observe(root)
+    ro.observe(scrollRoot)
 
     return () => {
-      root.removeEventListener('scroll', syncActiveFromScroll)
+      scrollRoot.removeEventListener('scroll', syncActiveFromScroll)
       window.removeEventListener('hashchange', onHash)
       ro.disconnect()
     }
-  }, [syncActiveFromScroll])
+  }, [scrollRoot, syncActiveFromScroll])
 
   return (
-    <main className="portifolio-screem" aria-label="Portfólio">
-      <div className="portifolio-screem__container">
-        <Header
-          logoText="<S/>"
-          links={sectionsPortifolioList}
-          activeAnchorId={activeAnchorId}
-        />
-        <div ref={contentRef} className="portifolio-screem__content">
-          {sectionsPortifolioList.map(({ anchorId, title, content: Section }) => (
-            <Section key={anchorId} anchorId={anchorId} title={title} />
-          ))}
-        </div>
-      </div>
+    <main
+      className={[
+        'portifolio-screem',
+        isMaximized ? 'portifolio-screem--maximized' : '',
+      ]
+        .filter(Boolean)
+        .join(' ')}
+      aria-label="Portfólio"
+    >
+      <PagePortifolioShell
+        links={sectionsPortifolioList}
+        activeAnchorId={activeAnchorId}
+        windowControls={windowControls}
+        onScrollViewportRef={onScrollViewportRef}
+      >
+        {sectionsPortifolioList.map(({ anchorId, title, content: Section }) => (
+          <Section key={anchorId} anchorId={anchorId} title={title} />
+        ))}
+      </PagePortifolioShell>
     </main>
   )
 }

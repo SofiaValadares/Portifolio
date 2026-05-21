@@ -7,6 +7,7 @@ export { langLogo } from './shared/langLogo'
 
 export { expertisesCardsData } from './portifolio/expertisesCards'
 export { projectsCardsData } from './portifolio/projectsCards'
+export { DEFAULT_PROJECT_IMAGE, projectsData } from './portifolio/projects'
 export { experiencesAccordionData } from './portifolio/experiencesAccordion'
 
 /** Importar direto de `./portifolio/sectionsPortifolioList` (evita ciclo com componentes). */

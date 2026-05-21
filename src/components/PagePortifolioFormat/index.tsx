@@ -1,20 +1,15 @@
-import type { ReactNode } from 'react'
+import type { PagePortifolioSectionProps } from './types'
 import './pagePortifolioFormat.css'
 
-export type PagePortifolioFormatProps = {
-  /** `id` da secção (âncora `#...`) */
-  sectionId: string
-  title: ReactNode
-  children: ReactNode
-  className?: string
-}
+export type { BrowserWindowControls, PagePortifolioShellProps } from './types'
+export { default as PagePortifolioShell } from './PagePortifolioShell'
 
 export default function PagePortifolioFormat({
   sectionId,
   title,
   children,
   className,
-}: PagePortifolioFormatProps) {
+}: PagePortifolioSectionProps) {
   return (
     <section
       id={sectionId}

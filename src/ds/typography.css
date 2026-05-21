@@ -15,7 +15,7 @@
 .ds-title {
   color: var(--primaryText, #fff6d5);
   text-align: center;
-  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 4px 4px color-mix(in srgb, var(--text-dark-color) 30%, transparent);
   font-family: var(--font-sans);
   font-size: 40px;
   font-style: normal;

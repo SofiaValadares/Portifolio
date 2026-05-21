@@ -31,7 +31,7 @@
   padding: var(--contact-button-pad-block) var(--contact-button-pad-inline);
   background: var(--text-dark-color);
   color: var(--text-color);
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 4px 0 color-mix(in srgb, var(--text-dark-color) 28%, transparent);
 }
 
 .contactButton:focus-visible {
@@ -40,7 +40,7 @@
 }
 
 .contactButton:active {
-  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 3px 0 color-mix(in srgb, var(--text-dark-color) 22%, transparent);
 }
 
 .contactButton__icon {

@@ -1,6 +1,6 @@
 /**
- * Dark mode color tokens (from DarkMode.tokens.json).
- * Use: var(--primaryText), var(--backgroud), etc.
+ * Tokens de cor do design system (DarkMode / Figma).
+ * Use: var(--primaryText), var(--backgroud), var(--text-color), etc.
  */
 :root {
   --backgroud: #0c0058;
@@ -14,12 +14,36 @@
   --page-border: #ffeda8;
   --page-border-text: #090235;
 
-  /* Conteúdo / tipografia (além dos tokens Figma) */
   --text-color: #4d7ee8;
   --text-secondary-color: #051d37;
   --text-dark-color: #0c0058;
 
-  /* Superfícies (conteúdo claro do portfólio) */
   --backgroud-primary-color: #b4ceea;
   --backgroud-secondary-color: #8ebdef;
+
+  --page-portfolio-format-bg-top: var(--backgroud-primary-color);
+  --page-portfolio-format-bg-bottom: var(--backgroud-secondary-color);
+
+  /* Chrome do navegador */
+  --browser-chrome-bg: var(--page-border);
+  --browser-chrome-border: var(--page-border);
+  --browser-chrome-tab-idle: var(--secondaryText);
+  --browser-toolbar-bg: var(--primary-bth-backgraud);
+  --browser-window-border: var(--page-border);
+  --browser-chrome-block-height: 7.75rem;
+
+  /* Overlays (mistura com roxo do DS, sem preto) */
+  --overlay-35: color-mix(in srgb, var(--backgroud) 35%, transparent);
+  --overlay-65: color-mix(in srgb, var(--backgroud) 65%, transparent);
+  --overlay-80: color-mix(in srgb, var(--backgroud) 80%, transparent);
+
+  /* Dock (home) */
+  --dock-bar-bg: color-mix(in srgb, var(--backgroud) 82%, transparent);
+  --dock-bar-border: color-mix(in srgb, var(--page-border) 55%, transparent);
+  --dock-icon-bg: var(--text-secondary-color);
+  --dock-icon-border: color-mix(in srgb, var(--page-border) 70%, transparent);
+  --dock-icon-color: var(--primaryText);
+  --dock-label-color: var(--primaryText);
+  --dock-label-shadow: 0 1px 2px color-mix(in srgb, var(--text-dark-color) 55%, transparent);
+  --dock-action-hover: var(--overlay-35);
 }

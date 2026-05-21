@@ -6,7 +6,7 @@
   --portifolio-outer-width: 90svw;
   --portifolio-outer-height: 90svh;
   --portifolio-padding-top: 5px;
-  --portifolio-header-height: 5svh;
+  --portifolio-header-height: var(--browser-chrome-block-height, 7.75rem);
   --portifolio-inner-width: calc(
     var(--portifolio-outer-width) - 2 * var(--portifolio-border)
   );
@@ -14,7 +14,8 @@
     var(--portifolio-outer-height) - 2 * var(--portifolio-border) -
       var(--portifolio-padding-top)
   );
-  --portifolio-content-width: var(--portifolio-inner-width);
+  /* Largura do conteúdo = área útil do viewport (100% do trilho interno). */
+  --portifolio-content-width: 100%;
   --portifolio-content-height: calc(
     var(--portifolio-flex-track-height)  -
       var(--portifolio-header-height)
