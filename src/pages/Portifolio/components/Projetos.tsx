@@ -1,5 +1,5 @@
 import type { SectionContentProps } from '../../../models/SectionsPortifolioModel'
-import PagePortifolioFormat from '../../../components/PagePortifolioFormat'
+import { SectionConteiner } from '../../../components/conteiner'
 import { ProjectCard } from '../../../components/ProjectCard'
 import { projectsCardsData } from '../../../mocks'
 import './Projetos.css'
@@ -12,8 +12,9 @@ const HEADLINE_LINES = [
 
 export default function Projetos({ anchorId, title }: SectionContentProps) {
   return (
-    <PagePortifolioFormat
+    <SectionConteiner
       sectionId={anchorId}
+      blockClass="page-portfolio-format"
       className="projetos page-portfolio-format--tall"
       title={<h2 id={`${anchorId}-heading`}>{title}</h2>}
     >
@@ -44,6 +45,6 @@ export default function Projetos({ anchorId, title }: SectionContentProps) {
           ))}
         </div>
       </div>
-    </PagePortifolioFormat>
+    </SectionConteiner>
   )
 }

@@ -1,0 +1,79 @@
+:root {
+  --section-format-pad-block: clamp(20px, 5.3vw, 80px);
+  --section-format-pad-inline: clamp(20px, 5.3vw, 80px);
+  --section-format-gap: clamp(32px, 5.3vw, 80px);
+}
+
+.section-format,
+.page-portfolio-format {
+  display: flex;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: var(--portifolio-content-height);
+  height: auto;
+  overflow: visible;
+  scroll-margin-top: calc(var(--portifolio-header-height) + var(--portifolio-gap) + 4px);
+  padding: var(--section-format-pad-block)
+    var(--section-format-pad-inline)
+    var(--section-format-pad-block)
+    var(--section-format-pad-inline);
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--section-format-gap);
+
+  background: linear-gradient(
+    180deg,
+    var(--page-portfolio-format-bg-top) 0%,
+    var(--page-portfolio-format-bg-bottom) 100%
+  );
+}
+
+.section-format__header,
+.page-portfolio-format__header {
+  flex-shrink: 0;
+  margin: 0;
+  width: 100%;
+  color: var(--text-color, #4d7ee8);
+  text-align: left;
+  font-family: var(--font-display, 'Montserrat Alternates', system-ui, sans-serif);
+  font-size: clamp(26px, 7vw, 40px);
+  font-style: italic;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.section-format__header :where(h1, h2, h3, h4, h5, h6),
+.page-portfolio-format__header :where(h1, h2, h3, h4, h5, h6) {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+}
+
+.section-format__body,
+.page-portfolio-format__body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+
+.section-format--no-gap,
+.page-portfolio-format--no-gap {
+  gap: 0;
+}
+
+.section-format--tall,
+.page-portfolio-format--tall {
+  justify-content: flex-start;
+}
+
+.section-format--tall .section-format__body,
+.page-portfolio-format--tall .page-portfolio-format__body {
+  flex: 0 0 auto;
+  min-height: auto;
+}

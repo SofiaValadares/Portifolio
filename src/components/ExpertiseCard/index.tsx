@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import type { FC, ReactNode } from 'react'
 import type { LanguegeModel } from '../../models/LanguegeModel.ts'
 import './expertiseCard.css'
 
@@ -9,12 +9,12 @@ interface ExpertiseCardProps {
   languegesList: LanguegeModel[]
 }
 
-export function ExpertiseCard({
+const ExpertiseCard: FC<ExpertiseCardProps> = ({
   icon,
   title,
   description,
   languegesList,
-}: ExpertiseCardProps) {
+}) => {
   return (
     <article className="expertiseCard__conteiner">
       <header className="expertiseCard__header">
@@ -43,3 +43,5 @@ export function ExpertiseCard({
     </article>
   )
 }
+
+export default ExpertiseCard;

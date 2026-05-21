@@ -1,0 +1,104 @@
+.page-conteiner {
+  --page-conteiner-border: 3px;
+  --page-conteiner-screen-inset: clamp(0.5rem, 2.5vmin, 2.5svh);
+  --page-conteiner-chrome-height: 2.85rem;
+  --page-conteiner-gap: 0;
+
+  /* Aliases para NavConteiner, secções e CSS do portfólio */
+  --portifolio-border: var(--page-conteiner-border);
+  --portifolio-screen-inset: var(--page-conteiner-screen-inset);
+  --portifolio-chrome-height: var(--page-conteiner-chrome-height);
+  --portifolio-header-height: var(--page-conteiner-chrome-height);
+  --portifolio-gap: var(--page-conteiner-gap);
+  --portifolio-window-width: calc(100vw - 2 * var(--page-conteiner-screen-inset));
+  --portifolio-window-height: calc(100dvh - 2 * var(--page-conteiner-screen-inset));
+  --portifolio-content-width: 100%;
+
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: var(--page-conteiner-screen-inset);
+}
+
+.page-conteiner--fullscreen {
+  --page-conteiner-screen-inset: 0;
+  --portifolio-window-width: 100vw;
+  --portifolio-window-height: 100dvh;
+  padding: 0;
+}
+
+.page-conteiner__shell {
+  --portifolio-content-height: calc(
+    100% - var(--page-conteiner-chrome-height) - 2 * var(--page-conteiner-border)
+  );
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex: 0 1 auto;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  background-color: var(--page-border);
+  border: var(--page-conteiner-border) solid var(--page-border);
+  padding: var(--page-conteiner-border);
+  box-shadow:
+    0 1px 0 color-mix(in srgb, var(--secondaryText) 25%, transparent) inset,
+    0 22px 50px var(--overlay-80),
+    0 8px 20px var(--overlay-65);
+  gap: 0;
+}
+
+.page-conteiner--fullscreen .page-conteiner__shell {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 0;
+}
+
+.page-conteiner__viewport {
+  flex: 1 1 0;
+  min-height: 0;
+  width: 100%;
+  background: var(--scrollbar-track-gradient);
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  overscroll-behavior-y: contain;
+  /*
+   * scrollbar-width/color (sem ::-webkit-scrollbar*) = barra fina
+   * sem setinhas no Windows/Edge; webkit-* força modo clássico com setas.
+   */
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  border-left: var(--page-conteiner-border) solid var(--page-border);
+  border-right: var(--page-conteiner-border) solid var(--page-border);
+  border-bottom: var(--page-conteiner-border) solid var(--page-border);
+  box-sizing: border-box;
+}
+
+.page-conteiner__scroll-content {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 100%;
+}

@@ -4,10 +4,12 @@ import {
   useMemo,
   useState,
 } from 'react'
-import { PagePortifolioShell } from '../../components/PagePortifolioFormat'
-import type { BrowserWindowControls } from '../../components/PagePortifolioFormat'
+import {
+  NavConteiner,
+  PageConteiner,
+} from '../../components/conteiner'
+import type { BrowserWindowControls } from '../../components/conteiner'
 import { sectionsPortifolioList } from '../../mocks/portifolio/sectionsPortifolioList'
-import './portifolio.css'
 
 export type PortifolioProps = {
   scrollRoot: HTMLElement | null
@@ -89,25 +91,21 @@ export default function Portifolio({
   }, [scrollRoot, syncActiveFromScroll])
 
   return (
-    <main
-      className={[
-        'portifolio-screem',
-        isMaximized ? 'portifolio-screem--maximized' : '',
-      ]
-        .filter(Boolean)
-        .join(' ')}
-      aria-label="Portfólio"
+    <PageConteiner
+      isFullscreen={isMaximized}
+      onScrollViewportRef={onScrollViewportRef}
+      ariaLabel="Portfólio"
+      nav={
+        <NavConteiner
+          sections={sectionsPortifolioList}
+          activeAnchorId={activeAnchorId}
+          windowControls={windowControls}
+        />
+      }
     >
-      <PagePortifolioShell
-        links={sectionsPortifolioList}
-        activeAnchorId={activeAnchorId}
-        windowControls={windowControls}
-        onScrollViewportRef={onScrollViewportRef}
-      >
-        {sectionsPortifolioList.map(({ anchorId, title, content: Section }) => (
-          <Section key={anchorId} anchorId={anchorId} title={title} />
-        ))}
-      </PagePortifolioShell>
-    </main>
+      {sectionsPortifolioList.map(({ anchorId, title, content: Section }) => (
+        <Section key={anchorId} anchorId={anchorId} title={title} />
+      ))}
+    </PageConteiner>
   )
 }

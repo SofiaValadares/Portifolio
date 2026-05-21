@@ -30,7 +30,7 @@
   --browser-chrome-tab-idle: var(--secondaryText);
   --browser-toolbar-bg: var(--primary-bth-backgraud);
   --browser-window-border: var(--page-border);
-  --browser-chrome-block-height: 7.75rem;
+  --browser-chrome-block-height: var(--page-conteiner-chrome-height, 2.85rem);
 
   /* Overlays (mistura com roxo do DS, sem preto) */
   --overlay-35: color-mix(in srgb, var(--backgroud) 35%, transparent);
@@ -46,4 +46,16 @@
   --dock-label-color: var(--primaryText);
   --dock-label-shadow: 0 1px 2px color-mix(in srgb, var(--text-dark-color) 55%, transparent);
   --dock-action-hover: var(--overlay-35);
+
+  /* Scrollbar (viewport — mesmo fundo das secções) */
+  --scrollbar-size: 8px;
+  --scrollbar-track: var(--backgroud-secondary-color);
+  --scrollbar-track-gradient: linear-gradient(
+    180deg,
+    var(--page-portfolio-format-bg-top) 0%,
+    var(--page-portfolio-format-bg-bottom) 100%
+  );
+  --scrollbar-thumb: color-mix(in srgb, var(--text-color) 65%, var(--backgroud));
+  --scrollbar-thumb-hover: var(--text-color);
+  --scrollbar-thumb-border: color-mix(in srgb, var(--text-color) 35%, var(--backgroud-primary-color));
 }

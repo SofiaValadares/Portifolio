@@ -1,9 +1,9 @@
 import { Download, Mail } from 'lucide-react'
 import { IconGithub, IconLinkedin } from '../../../components/icons/socialIcons'
 import type { SectionContentProps } from '../../../models/SectionsPortifolioModel'
-import PagePortifolioFormat from '../../../components/PagePortifolioFormat'
-import { ContactButton } from '../../../components/ContactButton'
+import { SectionConteiner } from '../../../components/conteiner'
 import './Contatos.css'
+import ContactButton from "../../../components/ContactButton";
 
 const CAREER_START = new Date(2024, 8, 19) // 19/09/2024
 
@@ -41,8 +41,9 @@ export default function Contatos({ anchorId, title }: SectionContentProps) {
   }
 
   return (
-    <PagePortifolioFormat
+    <SectionConteiner
       sectionId={anchorId}
+      blockClass="page-portfolio-format"
       className="contatos page-portfolio-format--no-gap"
       title={<h2 id={`${anchorId}-heading`}>{title}</h2>}
     >
@@ -103,6 +104,6 @@ export default function Contatos({ anchorId, title }: SectionContentProps) {
           </div>
         </div>
       </div>
-    </PagePortifolioFormat>
+    </SectionConteiner>
   )
 }

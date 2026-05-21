@@ -1,5 +1,5 @@
+import type {FC, ReactNode} from 'react'
 import { Activity } from 'lucide-react'
-import type { ReactNode } from 'react'
 import './contactButton.css'
 
 interface ContactButtonProps {
@@ -10,13 +10,13 @@ interface ContactButtonProps {
   type?: 'button' | 'submit'
 }
 
-export function ContactButton({
+const ContactButton: FC<ContactButtonProps> = ({
   label,
   onClick,
   icon,
   className,
   type = 'button',
-}: ContactButtonProps) {
+}) => {
   return (
     <button
       type={type}
@@ -30,3 +30,5 @@ export function ContactButton({
     </button>
   )
 }
+
+export default ContactButton;

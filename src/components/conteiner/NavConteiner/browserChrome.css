@@ -1,5 +1,6 @@
 .browser-chrome {
   flex-shrink: 0;
+  min-height: var(--portifolio-chrome-height);
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -54,6 +55,10 @@
 
 .browser-chrome__dot--close {
   background: #ff5f57;
+}
+
+.browser-chrome__dot--minimize {
+  background: #febc2e;
 }
 
 .browser-chrome__dot--maximize {
@@ -142,14 +147,6 @@
 .browser-chrome__tab-label {
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.browser-chrome__tab--new {
-  justify-content: center;
-  min-width: 2rem;
-  padding-inline: 0.55rem;
-  opacity: 0.35;
-  cursor: default;
 }
 
 @media (min-width: 720px) {

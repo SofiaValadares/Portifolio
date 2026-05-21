@@ -1,13 +1,14 @@
 import type { SectionContentProps } from '../../../models/SectionsPortifolioModel'
-import PagePortifolioFormat from '../../../components/PagePortifolioFormat'
-import { ExpertiseCard } from '../../../components/ExpertiseCard'
+import { SectionConteiner } from '../../../components/conteiner'
+import ExpertiseCard from '../../../components/ExpertiseCard'
 import { expertisesCardsData } from '../../../mocks'
 import './Expertises.css'
 
 export default function Expertises({ anchorId, title }: SectionContentProps) {
   return (
-    <PagePortifolioFormat
+    <SectionConteiner
       sectionId={anchorId}
+      blockClass="page-portfolio-format"
       className="expertises page-portfolio-format--tall"
       title={<h2 id={`${anchorId}-heading`}>{title}</h2>}
     >
@@ -29,6 +30,6 @@ export default function Expertises({ anchorId, title }: SectionContentProps) {
           ))}
         </div>
       </div>
-    </PagePortifolioFormat>
+    </SectionConteiner>
   )
 }
