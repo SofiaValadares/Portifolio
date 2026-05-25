@@ -1,8 +1,8 @@
-import type { SectionContentProps } from '../../../models/SectionsPortifolioModel'
-import { SectionConteiner } from '../../../components/conteiner'
-import { ExperiencieAcordion } from '../../../components/ExperiencieAcordion'
-import { experiencesAccordionData } from '../../../mocks/portifolio/experiencesAccordion'
-import './Experiencia.css'
+import type { SectionContentProps } from '../../../../models/SectionsPortifolioModel'
+import { SectionConteiner } from '../../../../components/conteiner'
+import { experiencesAccordionData } from '../../../../mocks/portifolio/experiencesAccordion'
+import ExperienceAcordion from './components/ExperienceAcordion'
+import './experiencia.css'
 
 export default function Experiencia({ anchorId, title }: SectionContentProps) {
   return (
@@ -15,7 +15,7 @@ export default function Experiencia({ anchorId, title }: SectionContentProps) {
       <ul className="experiencia__list">
         {experiencesAccordionData.map((item) => (
           <li key={`${item.local}-${item.position}-${item.dateStart.getTime()}`}>
-            <ExperiencieAcordion {...item} />
+            <ExperienceAcordion {...item} />
           </li>
         ))}
       </ul>

@@ -24,9 +24,7 @@ export default function PortfolioRoute() {
       <div className="app-shell__portfolio">
         <App
           isMaximized={isMaximized}
-          onOverscrollTop={goToHome}
           onWindowClose={goToHome}
-          onWindowMinimize={goToHome}
         />
       </div>
     </div>

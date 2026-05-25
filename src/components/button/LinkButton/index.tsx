@@ -1,8 +1,8 @@
-import type {FC, ReactNode} from 'react'
+import type { FC, ReactNode } from 'react'
 import { Activity } from 'lucide-react'
-import './contactButton.css'
+import './linkButton.css'
 
-interface ContactButtonProps {
+interface LinkButtonProps {
   label: string
   onClick?: () => void
   icon?: ReactNode
@@ -10,7 +10,7 @@ interface ContactButtonProps {
   type?: 'button' | 'submit'
 }
 
-const ContactButton: FC<ContactButtonProps> = ({
+const LinkButton: FC<LinkButtonProps> = ({
   label,
   onClick,
   icon,
@@ -20,15 +20,15 @@ const ContactButton: FC<ContactButtonProps> = ({
   return (
     <button
       type={type}
-      className={['contactButton', className].filter(Boolean).join(' ')}
+      className={['link-button', className].filter(Boolean).join(' ')}
       onClick={onClick}
     >
-      <span className="contactButton__icon" aria-hidden>
+      <span className="link-button__icon" aria-hidden>
         {icon ?? <Activity strokeWidth={2} />}
       </span>
-      <span className="contactButton__label">{label}</span>
+      <span className="link-button__label">{label}</span>
     </button>
   )
 }
 
-export default ContactButton;
+export default LinkButton

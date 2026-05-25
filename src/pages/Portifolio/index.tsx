@@ -12,8 +12,6 @@ import type { BrowserWindowControls } from '../../components/conteiner'
 import { sectionsPortifolioList } from '../../mocks/portifolio/sectionsPortifolioList'
 
 export type PortifolioProps = {
-  scrollRoot: HTMLElement | null
-  onScrollViewportRef?: (element: HTMLDivElement | null) => void
   isMaximized?: boolean
   windowControls: BrowserWindowControls
 }
@@ -25,11 +23,11 @@ function resolveAnchorFromHash(): string | null {
 }
 
 export default function Portifolio({
-  scrollRoot,
-  onScrollViewportRef,
   isMaximized = false,
   windowControls,
 }: PortifolioProps) {
+  const [scrollRoot, setScrollRoot] = useState<HTMLDivElement | null>(null)
+
   const defaultAnchor = useMemo(
     () => sectionsPortifolioList[0]?.anchorId ?? '',
     [],
@@ -93,7 +91,7 @@ export default function Portifolio({
   return (
     <PageConteiner
       isFullscreen={isMaximized}
-      onScrollViewportRef={onScrollViewportRef}
+      onScrollViewportRef={setScrollRoot}
       ariaLabel="Portfólio"
       nav={
         <NavConteiner

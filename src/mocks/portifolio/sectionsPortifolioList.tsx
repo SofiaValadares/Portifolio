@@ -1,6 +1,6 @@
 import type { SectionsPortifolioModel } from '../../models/SectionsPortifolioModel'
-import Contatos from '../../pages/Portifolio/components/Contatos'
-import Experiencia from '../../pages/Portifolio/components/Experiencia'
+import Contatos from '../../pages/Portifolio/sections/contatos'
+import Experiencia from '../../pages/Portifolio/sections/experiencia'
 import Expertises from '../../pages/Portifolio/components/Expertises'
 import Projetos from '../../pages/Portifolio/components/Projetos'
 import {

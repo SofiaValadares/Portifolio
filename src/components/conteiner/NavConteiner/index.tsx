@@ -14,7 +14,7 @@ const NavConteiner: React.FC<NavConteinerProps> = (
         activeAnchorId,
         windowControls,
     }) => {
-    const { onClose, onMinimize, onMaximize, isMaximized = false } = windowControls
+    const { onClose, onMaximize, isMaximized = false } = windowControls
 
     return (
         <header className="browser-chrome" aria-label="Janela do navegador">
@@ -25,12 +25,6 @@ const NavConteiner: React.FC<NavConteinerProps> = (
                         className="browser-chrome__dot browser-chrome__dot--close"
                         aria-label="Fechar janela"
                         onClick={onClose}
-                    />
-                    <button
-                        type="button"
-                        className="browser-chrome__dot browser-chrome__dot--minimize"
-                        aria-label="Minimizar janela"
-                        onClick={onMinimize}
                     />
                     <button
                         type="button"

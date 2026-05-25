@@ -3,10 +3,10 @@
   min-height: var(--portifolio-chrome-height);
   display: flex;
   flex-direction: column;
+  justify-content: end;
   width: 100%;
   box-sizing: border-box;
-  border-left: var(--portifolio-border) solid var(--page-border);
-  border-right: var(--portifolio-border) solid var(--page-border);
+
 }
 
 .browser-chrome__tabs {
@@ -55,10 +55,6 @@
 
 .browser-chrome__dot--close {
   background: #ff5f57;
-}
-
-.browser-chrome__dot--minimize {
-  background: #febc2e;
 }
 
 .browser-chrome__dot--maximize {

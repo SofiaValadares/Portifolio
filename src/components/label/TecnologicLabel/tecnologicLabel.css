@@ -1,0 +1,44 @@
+.tecnologic-label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.tecnologic-label::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 0.25rem);
+  left: 50%;
+  z-index: 2;
+  padding: 0.2em 0.45em;
+  border-radius: 0.25em;
+  background: var(--text-secondary-color, #051d37);
+  color: var(--primaryText, #fff6d5);
+  font-family: var(--font-code);
+  font-size: 0.65rem;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(-50%);
+  transition: opacity 0.15s ease;
+}
+
+.tecnologic-label:hover::after,
+.tecnologic-label:focus-visible::after {
+  opacity: 1;
+}
+
+.tecnologic-label:focus-visible {
+  outline: 2px solid var(--text-secondary-color);
+  outline-offset: 2px;
+  border-radius: 0.2em;
+}
+
+.tecnologic-label :where(img, svg) {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}

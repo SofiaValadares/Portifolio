@@ -14,10 +14,19 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 0.75rem;
+  gap: 0.35rem;
   width: 100%;
-  margin: 0;
   padding: 0.75rem 0.875rem;
+  box-sizing: border-box;
+}
+
+.experiencie-accordion__header-trigger {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: flex-start;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
   border: none;
   background: transparent;
   text-align: left;
@@ -26,7 +35,7 @@
   font: inherit;
 }
 
-.experiencie-accordion__header:focus-visible {
+.experiencie-accordion__header-trigger:focus-visible {
   outline: 2px solid var(--text-color, #4d7ee8);
   outline-offset: -2px;
 }
@@ -84,16 +93,18 @@
   color: var(--text-color, #4d7ee8);
 }
 
-.experiencie-accordion__toggle-icon {
+.experiencie-accordion__toggle.icon-button {
+  --icon-button-size: 1.75rem;
   flex-shrink: 0;
-  width: 1.25rem;
-  height: 1.25rem;
-  margin-top: 0.1rem;
+  margin-top: 0.05rem;
   color: var(--text-dark-color, #0c0058);
+}
+
+.experiencie-accordion__toggle-icon {
   transition: transform 0.2s ease;
 }
 
-.experiencie-accordion__toggle-icon--open {
+.experiencie-accordion__toggle--open .experiencie-accordion__toggle-icon {
   transform: rotate(180deg);
 }
 
@@ -154,59 +165,4 @@
   font-weight: 400;
   line-height: 1.4;
   text-align: start;
-}
-
-.experiencie-accordion__skills {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.experiencie-accordion__skill-icon {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.75rem;
-  height: 1.75rem;
-}
-
-.experiencie-accordion__skill-icon::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  bottom: calc(100% + 0.25rem);
-  left: 50%;
-  z-index: 2;
-  padding: 0.2em 0.45em;
-  border-radius: 0.25em;
-  background: var(--text-secondary-color, #051d37);
-  color: var(--primaryText, #fff6d5);
-  font-family: var(--font-code);
-  font-size: 0.65rem;
-  white-space: nowrap;
-  pointer-events: none;
-  opacity: 0;
-  transform: translateX(-50%);
-  transition: opacity 0.15s ease;
-}
-
-.experiencie-accordion__skill-icon:hover::after,
-.experiencie-accordion__skill-icon:focus-visible::after {
-  opacity: 1;
-}
-
-.experiencie-accordion__skill-icon:focus-visible {
-  outline: 2px solid var(--text-secondary-color);
-  outline-offset: 2px;
-  border-radius: 0.2em;
-}
-
-.experiencie-accordion__skill-icon :where(img, svg) {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
 }
