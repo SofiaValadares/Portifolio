@@ -7,7 +7,7 @@ import './routeTransitions.css'
 
 function routeStageVariant(pathname: string): string {
   if (pathname === '/splash') return 'splash'
-  if (pathname === '/portfolio') return 'portfolio'
+  if (pathname === '/portfolio' || pathname.startsWith('/portifolio/')) return 'portfolio'
   return 'desktop'
 }
 
@@ -26,6 +26,7 @@ export default function AppRouter() {
         <Route path="/splash" element={<SplashRoute />} />
         <Route path="/home" element={<DesktopRoute />} />
         <Route path="/portfolio" element={<PortfolioRoute />} />
+        <Route path="/portifolio/detalhes-projeto/:projectId" element={<PortfolioRoute />} />
         <Route path="*" element={<Navigate to="/portfolio" replace />} />
       </Routes>
     </div>

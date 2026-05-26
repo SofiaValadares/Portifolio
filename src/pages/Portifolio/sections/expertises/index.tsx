@@ -1,8 +1,8 @@
-import type { SectionContentProps } from '../../../models/SectionsPortifolioModel'
-import { SectionConteiner } from '../../../components/conteiner'
-import ExpertiseCard from '../../../components/ExpertiseCard'
-import { expertisesCardsData } from '../../../mocks'
-import './Expertises.css'
+import type { SectionContentProps } from '../../../../models/SectionsPortifolioModel'
+import { SectionConteiner } from '../../../../components/conteiner'
+import { expertisesCardsData } from '../../../../mocks'
+import ExpertisesCard from './components/ExpertisesCard'
+import './expertises.css'
 
 export default function Expertises({ anchorId, title }: SectionContentProps) {
   return (
@@ -14,13 +14,13 @@ export default function Expertises({ anchorId, title }: SectionContentProps) {
     >
       <div className="expertises__content">
         <p className="ds-big-text expertises__intro">
-          <span>Desenvolvimento Web</span> em <span>Contextos Ágeis</span> com
-          soluções de ponta a ponta: <span>Front-end e Back-end</span>.
+          <span>Desenvolvimento Web</span> em <span>Contextos Ágeis</span> com soluções de ponta a
+          ponta: <span>Front-end e Back-end</span>.
         </p>
 
         <div className="expertises__cards">
           {expertisesCardsData.map((card) => (
-            <ExpertiseCard
+            <ExpertisesCard
               key={card.title}
               icon={card.icon}
               title={card.title}

@@ -1,8 +1,9 @@
-import type { SectionContentProps } from '../../../models/SectionsPortifolioModel'
-import { SectionConteiner } from '../../../components/conteiner'
-import { ProjectCard } from '../../../components/ProjectCard'
-import { projectsCardsData } from '../../../mocks'
-import './Projetos.css'
+import type { SectionContentProps } from '../../../../models/SectionsPortifolioModel'
+import { SectionConteiner } from '../../../../components/conteiner'
+import { projectsCardsData } from '../../../../mocks'
+import PhotoProjectCard from './components/PhotoProjectCard'
+import { ProjetoCard } from './components/ProjetoCard'
+import './projetos.css'
 
 const HEADLINE_LINES = [
   'INOVAÇÃO COM',
@@ -30,18 +31,12 @@ export default function Projetos({ anchorId, title }: SectionContentProps) {
             </p>
           </div>
 
-          <div className="projetos__hero-media">
-            <div
-              className="projetos__hero-image-wrap"
-              role="img"
-              aria-label="Pré-visualização do projeto"
-            />
-          </div>
+          <PhotoProjectCard imageUrl="/default-image.png" link="#projetos" />
         </section>
 
         <div className="projetos__grid" aria-label="Galeria de projetos">
           {projectsCardsData.map((card, index) => (
-            <ProjectCard key={`${card.name}-${card.variation}-${index}`} {...card} />
+            <ProjetoCard key={`${card.name}-${card.variation}-${index}`} {...card} />
           ))}
         </div>
       </div>

@@ -1,12 +1,12 @@
-.expertiseCard__conteiner {
-  --expertise-card-pad-inline: 0.625rem;
-  --expertise-card-pad-block-end: 0.625rem;
-  --expertise-card-gap: 0.625rem;
-  --expertise-card-header-icon-size: 1.25em;
-  --expertise-card-lang-icon-size: 2em;
-  --expertise-card-lang-gap: 0.75em;
-  --expertise-card-header-pad-block: 0.375em;
-  --expertise-card-header-pad-inline: 0.75em;
+.expertisesCard__conteiner {
+  --expertises-card-pad-inline: 0.625rem;
+  --expertises-card-pad-block-end: 0.625rem;
+  --expertises-card-gap: 0.625rem;
+  --expertises-card-header-icon-size: 1.25em;
+  --expertises-card-lang-icon-size: 2em;
+  --expertises-card-lang-gap: 0.75em;
+  --expertises-card-header-pad-block: 0.375em;
+  --expertises-card-header-pad-inline: 0.75em;
 
   display: flex;
   flex-direction: column;
@@ -14,24 +14,24 @@
   align-self: stretch;
   height: auto;
   min-height: auto;
-  padding: 0 var(--expertise-card-pad-inline) var(--expertise-card-pad-block-end);
-  gap: var(--expertise-card-gap);
+  padding: 0 var(--expertises-card-pad-inline) var(--expertises-card-pad-block-end);
+  gap: var(--expertises-card-gap);
   border-radius: 0.625rem;
   border: 2px solid var(--text-secondary-color);
   background: var(--backgroud-primary-color);
   box-sizing: border-box;
 }
 
-.expertiseCard__conteiner:hover {
+.expertisesCard__conteiner:hover {
   box-shadow: 0 4px 4px 0 color-mix(in srgb, var(--text-dark-color) 28%, transparent);
 }
 
-.expertiseCard__header {
+.expertisesCard__header {
   display: inline-flex;
   align-items: center;
   gap: 0.5em;
   margin: 0;
-  padding: var(--expertise-card-header-pad-block) var(--expertise-card-header-pad-inline);
+  padding: var(--expertises-card-header-pad-block) var(--expertises-card-header-pad-inline);
   background: var(--text-secondary-color);
   color: var(--primaryText);
   font-family: var(--font-code);
@@ -40,26 +40,26 @@
   line-height: 1.25;
 }
 
-.expertiseCard__header-icon {
+.expertisesCard__header-icon {
   display: inline-flex;
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  width: var(--expertise-card-header-icon-size);
-  height: var(--expertise-card-header-icon-size);
+  width: var(--expertises-card-header-icon-size);
+  height: var(--expertises-card-header-icon-size);
 }
 
-.expertiseCard__header-icon :where(svg) {
+.expertisesCard__header-icon :where(svg) {
   width: 100%;
   height: 100%;
 }
 
-.expertiseCard__title {
+.expertisesCard__title {
   margin: 0;
   font: inherit;
 }
 
-.expertiseCard__description {
+.expertisesCard__description {
   margin: 0;
   width: 100%;
   flex: 1 1 auto;
@@ -72,27 +72,27 @@
   text-align: start;
 }
 
-.expertiseCard__languages {
+.expertisesCard__languages {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--expertise-card-lang-gap);
+  gap: var(--expertises-card-lang-gap);
   margin: auto 0 0;
   padding: 0;
   list-style: none;
 }
 
-.expertiseCard__language-icon {
+.expertisesCard__language-icon {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: var(--expertise-card-lang-icon-size);
-  height: var(--expertise-card-lang-icon-size);
+  width: var(--expertises-card-lang-icon-size);
+  height: var(--expertises-card-lang-icon-size);
   cursor: default;
 }
 
-.expertiseCard__language-icon::after {
+.expertisesCard__language-icon::after {
   content: attr(data-tooltip);
   position: absolute;
   bottom: calc(100% + 0.4em);
@@ -115,19 +115,19 @@
     transform 0.15s ease;
 }
 
-.expertiseCard__language-icon:hover::after,
-.expertiseCard__language-icon:focus-visible::after {
+.expertisesCard__language-icon:hover::after,
+.expertisesCard__language-icon:focus-visible::after {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
 
-.expertiseCard__language-icon:focus-visible {
+.expertisesCard__language-icon:focus-visible {
   outline: 2px solid var(--text-secondary-color);
   outline-offset: 2px;
   border-radius: 0.2em;
 }
 
-.expertiseCard__language-icon :where(svg, img) {
+.expertisesCard__language-icon :where(svg, img) {
   width: 100%;
   height: 100%;
   object-fit: contain;
