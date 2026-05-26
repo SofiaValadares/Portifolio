@@ -1,4 +1,6 @@
-import type { ProjectCardProps, ProjectCardVariation } from '../../../../../../models/ProjectCardModel'
+import type { ProjectCardData, ProjectCardVariation } from '../../../../../../models/ProjectCardModel'
+import type { ProjectModel } from '../../../../../../models/ProjectModel'
+import { resolveProjectTechnologies } from '../../../../../../utils'
 import BigCard from './cards/bigCard'
 import HorizontalCard from './cards/horizontalCard'
 import SmallCard from './cards/smallCard'
@@ -19,12 +21,13 @@ function imageCountFor(variation: ProjectCardVariation): number {
     : 1
 }
 
-function resolveImages(
-  images: string | string[] | undefined,
-  variation: ProjectCardVariation,
-): string[] {
+function resolveImages(project: ProjectModel, variation: ProjectCardVariation): string[] {
   const count = imageCountFor(variation)
-  const list = images == null ? [] : typeof images === 'string' ? [images] : [...images]
+  const list = [
+    project.imagePrimary,
+    project.imageSecondary,
+    project.imageDetails,
+  ].filter((image): image is string => Boolean(image))
 
   while (list.length < count) {
     list.push(DEFAULT_IMAGE)
@@ -33,13 +36,18 @@ function resolveImages(
   return list.slice(0, count)
 }
 
-export function ProjetoCard(props: ProjectCardProps) {
+export function ProjetoCard(props: ProjectCardData) {
+  const { project, variation } = props
   const cardProps = {
-    ...props,
-    images: resolveImages(props.images, props.variation),
+    id: project.id,
+    name: project.name,
+    images: resolveImages(project, variation),
+    technologies: resolveProjectTechnologies(project.technologies),
+    projectHref: project.projectHref ?? '#projetos',
+    githubUrl: project.githubUrl,
   }
 
-  switch (props.variation) {
+  switch (variation) {
     case ProjetoCardType.BIG_CARD:
       return <BigCard {...cardProps} />
     case ProjetoCardType.HORIZONTAL_CARD:

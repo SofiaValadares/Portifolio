@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
-import DesktopRoute from './DesktopRoute'
+import DetailsProjectRoute from './DetailsProjectRoute'
 import PortfolioRoute from './PortfolioRoute'
 import RootRedirect from './RootRedirect'
 import SplashRoute from './SplashRoute'
@@ -7,8 +7,7 @@ import './routeTransitions.css'
 
 function routeStageVariant(pathname: string): string {
   if (pathname === '/splash') return 'splash'
-  if (pathname === '/portfolio' || pathname.startsWith('/portifolio/')) return 'portfolio'
-  return 'desktop'
+  return 'portfolio'
 }
 
 export default function AppRouter() {
@@ -24,9 +23,10 @@ export default function AppRouter() {
       <Routes location={location}>
         <Route path="/" element={<RootRedirect />} />
         <Route path="/splash" element={<SplashRoute />} />
-        <Route path="/home" element={<DesktopRoute />} />
+        <Route path="/home" element={<Navigate to="/portfolio" replace />} />
         <Route path="/portfolio" element={<PortfolioRoute />} />
-        <Route path="/portifolio/detalhes-projeto/:projectId" element={<PortfolioRoute />} />
+        <Route path="/portifolio/projeto/:projectId" element={<DetailsProjectRoute />} />
+        <Route path="/portifolio/detalhes-projeto/:projectId" element={<DetailsProjectRoute />} />
         <Route path="*" element={<Navigate to="/portfolio" replace />} />
       </Routes>
     </div>

@@ -37,15 +37,15 @@
   --overlay-65: color-mix(in srgb, var(--backgroud) 65%, transparent);
   --overlay-80: color-mix(in srgb, var(--backgroud) 80%, transparent);
 
-  /* Dock (home) */
-  --dock-bar-bg: color-mix(in srgb, var(--backgroud) 82%, transparent);
-  --dock-bar-border: color-mix(in srgb, var(--page-border) 55%, transparent);
-  --dock-icon-bg: var(--text-secondary-color);
-  --dock-icon-border: color-mix(in srgb, var(--page-border) 70%, transparent);
-  --dock-icon-color: var(--primaryText);
-  --dock-label-color: var(--primaryText);
-  --dock-label-shadow: 0 1px 2px color-mix(in srgb, var(--text-dark-color) 55%, transparent);
-  --dock-action-hover: var(--overlay-35);
+  /* Dock */
+  --dock-bar-bg: color-mix(in srgb, var(--primary-bth-backgraud) 88%, var(--secondaryText));
+  --dock-bar-border: color-mix(in srgb, var(--secondaryText) 65%, var(--primary-bth-text));
+  --dock-icon-bg: color-mix(in srgb, var(--primary-bth-backgraud) 76%, var(--secondaryText));
+  --dock-icon-border: color-mix(in srgb, var(--primary-bth-text) 30%, var(--secondaryText));
+  --dock-icon-color: var(--primary-bth-text);
+  --dock-label-color: var(--primary-bth-text);
+  --dock-label-shadow: 0 1px 1px color-mix(in srgb, var(--primaryText) 70%, transparent);
+  --dock-action-hover: color-mix(in srgb, var(--secondaryText) 55%, transparent);
 
   /* Scrollbar (viewport — mesmo fundo das secções) */
   --scrollbar-size: 8px;

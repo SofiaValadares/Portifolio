@@ -29,42 +29,45 @@
   align-items: center;
   gap: 0.4rem;
   flex-shrink: 0;
-  padding: 0.35rem 0 0.25rem;
+  padding: 0.24rem 0 0.2rem;
 }
 
-.browser-chrome__dot {
-  width: 0.72rem;
-  height: 0.72rem;
+.browser-chrome__window-action {
+  display: inline-grid;
+  place-items: center;
+  width: 1.8rem;
+  height: 1.8rem;
   padding: 0;
   border: none;
-  border-radius: 50%;
-  box-shadow: inset 0 -1px 1px color-mix(in srgb, var(--text-dark-color) 35%, transparent);
+  border-radius: 0.55rem;
+  background: transparent;
+  color: var(--primary-bth-text);
+  box-shadow: none;
   cursor: pointer;
-  transition: transform 0.12s ease, filter 0.12s ease;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease;
 }
 
-.browser-chrome__dot:hover {
-  filter: brightness(1.08);
-  transform: scale(1.06);
+.browser-chrome__window-action:hover {
+  background: color-mix(in srgb, var(--text-dark-color) 12%, transparent);
+  transform: translateY(-1px);
 }
 
-.browser-chrome__dot:focus-visible {
-  outline: 2px solid var(--page-border);
+.browser-chrome__window-action:focus-visible {
+  outline: 2px solid var(--primary-bth-text);
   outline-offset: 2px;
 }
 
-.browser-chrome__dot--close {
-  background: #ff5f57;
+.browser-chrome__window-action[aria-pressed='true'] {
+  background: transparent;
+  color: var(--primary-bth-text);
 }
 
-.browser-chrome__dot--maximize {
-  background: #28c840;
-}
-
-.browser-chrome__dot--maximize[aria-pressed='true'] {
-  box-shadow:
-    inset 0 -1px 1px color-mix(in srgb, var(--text-dark-color) 35%, transparent),
-    0 0 0 1px var(--page-border);
+.browser-chrome__window-action :where(svg) {
+  width: 0.95rem;
+  height: 0.95rem;
 }
 
 .browser-chrome__tab-list {

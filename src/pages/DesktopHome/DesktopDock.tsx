@@ -1,5 +1,6 @@
 import { Power } from 'lucide-react'
 import { useNavigateWithTransition } from '../../hooks/useNavigateWithTransition'
+import './desktopHome.css'
 
 export default function DesktopDock() {
   const navigate = useNavigateWithTransition()

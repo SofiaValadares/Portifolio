@@ -114,12 +114,15 @@
   background-color: var(--overlay-80);
 }
 
-/* Dock / footer — largura total, botões compactos */
+/* Dock / footer — barra flutuante abaixo do portfólio */
 .desktop-dock {
   flex-shrink: 0;
+  display: flex;
+  justify-content: center;
   width: 100%;
   margin-top: auto;
-  padding: 0;
+  padding: 0.45rem clamp(0.75rem, 3vw, 1.5rem)
+    calc(0.55rem + env(safe-area-inset-bottom, 0px));
   box-sizing: border-box;
 }
 
@@ -127,18 +130,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 30px;
-  width: 100%;
+  gap: clamp(0.75rem, 3vw, 1.8rem);
+  width: min(100%, 24rem);
   margin: 0;
-  padding: 0.3rem 0.5rem calc(0.35rem + env(safe-area-inset-bottom, 0px));
+  padding: 0.45rem 0.85rem;
   list-style: none;
   box-sizing: border-box;
-  border-radius: 0;
-  border-top: 1px solid var(--dock-bar-border);
-  background: var(--dock-bar-bg);
+  border-radius: 999px;
+  border: 1px solid var(--dock-bar-border);
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--primaryText) 70%, var(--dock-bar-bg)) 0%,
+      var(--dock-bar-bg) 100%
+    );
   box-shadow:
-    0 -8px 24px var(--overlay-35),
-    inset 0 1px 0 color-mix(in srgb, var(--page-border) 20%, transparent);
+    0 8px 18px color-mix(in srgb, var(--page-border) 18%, transparent),
+    inset 0 1px 0 color-mix(in srgb, var(--primaryText) 80%, transparent);
   backdrop-filter: blur(12px);
 }
 
@@ -155,9 +163,9 @@
   justify-content: center;
   gap: 0.15rem;
   width: auto;
-  padding: 0.2rem 0.25rem;
+  padding: 0.25rem 0.4rem;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 999px;
   background: transparent;
   color: var(--dock-icon-color);
   cursor: pointer;
@@ -182,7 +190,7 @@
   place-items: center;
   width: 1.75rem;
   height: 1.75rem;
-  border-radius: 0.4rem;
+  border-radius: 999px;
   background: var(--dock-icon-bg);
   border: 1px solid var(--dock-icon-border);
   color: var(--dock-icon-color);

@@ -5,7 +5,7 @@ export const DEFAULT_PROJECT_IMAGE = '/default-image.png'
 
 export const projectsData: ProjectModel[] = [
   {
-    id: 'mvp-bancario',
+    id: '1',
     name: 'MVP Bancário',
     description:
       'MVP full stack para o setor financeiro, com interfaces em Angular e React, APIs em Spring Boot e entregas incrementais em squads ágeis.',
@@ -22,7 +22,7 @@ export const projectsData: ProjectModel[] = [
     projectHref: '#projetos',
   },
   {
-    id: 'projeto-bertoleza',
+    id: '2',
     name: 'Projeto Bertoleza',
     description:
       'Pesquisa e protótipos de reconhecimento de voz no contexto da iniciação científica na UFPE, com relatórios e apresentações dos resultados.',
@@ -31,7 +31,7 @@ export const projectsData: ProjectModel[] = [
     projectHref: '#projetos',
   },
   {
-    id: 'plataforma-web',
+    id: '3',
     name: 'Plataforma Web',
     description:
       'Aplicação web com foco em componentes reutilizáveis, integração com APIs REST e pipeline de deploy com Docker e Git.',

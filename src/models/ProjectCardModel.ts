@@ -1,4 +1,4 @@
-import type { LanguegeModel } from './LanguegeModel'
+import type { ProjectModel } from './ProjectModel'
 
 export type ProjectCardVariation =
   | 'large'
@@ -6,14 +6,8 @@ export type ProjectCardVariation =
   | 'standard'
   | 'double-vertical'
 
-export type ProjectCardProps = {
+export type ProjectCardData = {
   id: string
-  name: string
   variation: ProjectCardVariation
-  images?: string | string[]
-  technologies: LanguegeModel[]
-  projectHref: string
-  githubUrl?: string
+  project: ProjectModel
 }
-
-export type ProjectCardData = ProjectCardProps

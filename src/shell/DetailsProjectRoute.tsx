@@ -1,6 +1,7 @@
 import { useCallback } from 'react'
 import { useNavigateWithTransition } from '../hooks/useNavigateWithTransition'
 import App from '../App'
+import DetailsProject from '../pages/DetailsProject'
 import {
   resetPortfolioWindow,
   selectIsPortfolioMaximized,
@@ -9,7 +10,7 @@ import { useAppDispatch, useAppSelector } from '../store/hooks'
 import './shellLayout.css'
 import '../App.css'
 
-export default function PortfolioRoute() {
+export default function DetailsProjectRoute() {
   const navigate = useNavigateWithTransition()
   const dispatch = useAppDispatch()
   const isMaximized = useAppSelector(selectIsPortfolioMaximized)
@@ -25,6 +26,12 @@ export default function PortfolioRoute() {
         <App
           isMaximized={isMaximized}
           onWindowClose={goToSplash}
+          renderPage={(windowControls) => (
+            <DetailsProject
+              isMaximized={isMaximized}
+              windowControls={windowControls}
+            />
+          )}
         />
       </div>
     </div>

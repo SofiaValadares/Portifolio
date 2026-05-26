@@ -1,64 +1,26 @@
-import type { LanguegeModel } from '../../models/LanguegeModel'
-import type { ProjectCardData } from '../../models/ProjectCardModel'
-import { langLogo } from '../shared/langLogo'
+import type {
+  ProjectCardData,
+  ProjectCardVariation,
+} from '../../models/ProjectCardModel'
+import { projectsData } from './projects'
 
-const reactTsJs: LanguegeModel[] = [
-  { name: 'React', icon: langLogo('react.png') },
-  { name: 'TypeScript', icon: langLogo('typescript.png') },
-  { name: 'JavaScript', icon: langLogo('javascript.png') },
+const cardVariations: ProjectCardVariation[] = [
+  'large',
+  'double-horizontal',
+  'standard',
+  'standard',
+  'standard',
+  'double-vertical',
+  'standard',
 ]
 
 /** Ordem para o grid masonry (3 colunas, `grid-auto-flow: dense`). */
-export const projectsCardsData: ProjectCardData[] = [
-  {
-    id: 'projeto-large',
-    name: 'Nome do Projeto',
-    variation: 'large',
-    technologies: reactTsJs,
-    projectHref: '#projetos',
-    githubUrl: 'https://github.com/SofiaValadares',
-  },
-  {
-    id: 'projeto-horizontal',
-    name: 'Nome do Projeto',
-    variation: 'double-horizontal',
-    technologies: reactTsJs,
-    projectHref: '#projetos',
-  },
-  {
-    id: 'projeto-standard-1',
-    name: 'Nome do Projeto',
-    variation: 'standard',
-    technologies: reactTsJs,
-    projectHref: '#projetos',
-  },
-  {
-    id: 'projeto-standard-2',
-    name: 'Nome do Projeto',
-    variation: 'standard',
-    technologies: reactTsJs,
-    projectHref: '#projetos',
-    githubUrl: 'https://github.com/SofiaValadares',
-  },
-  {
-    id: 'projeto-standard-3',
-    name: 'Nome do Projeto',
-    variation: 'standard',
-    technologies: reactTsJs,
-    projectHref: '#projetos',
-  },
-  {
-    id: 'projeto-vertical',
-    name: 'Nome do Projeto',
-    variation: 'double-vertical',
-    technologies: reactTsJs,
-    projectHref: '#projetos',
-  },
-  {
-    id: 'projeto-standard-4',
-    name: 'Nome do Projeto',
-    variation: 'standard',
-    technologies: reactTsJs,
-    projectHref: '#projetos',
-  },
-]
+export const projectsCardsData: ProjectCardData[] = cardVariations.map((variation, index) => {
+  const project = projectsData[index % projectsData.length]
+
+  return {
+    id: project.id,
+    variation,
+    project,
+  }
+})

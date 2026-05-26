@@ -2,11 +2,15 @@ import { Link as LinkIcon } from 'lucide-react'
 import type { KeyboardEvent, MouseEvent, ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
 import type { LanguegeModel } from '../../../../../../../models/LanguegeModel'
-import type { ProjectCardProps } from '../../../../../../../models/ProjectCardModel'
 import { IconGithub } from '../../../../../../../components/icons/socialIcons'
 
-export type ProjetoCardViewProps = Omit<ProjectCardProps, 'variation' | 'images'> & {
+export type ProjetoCardViewProps = {
+  id: string
+  name: string
   images: string[]
+  technologies: LanguegeModel[]
+  projectHref: string
+  githubUrl?: string
 }
 
 export function ProjectCardShell({
@@ -19,7 +23,7 @@ export function ProjectCardShell({
   children: ReactNode
 }) {
   const navigate = useNavigate()
-  const detailPath = `/portifolio/detalhes-projeto/${id}`
+  const detailPath = `/portifolio/projeto/${id}`
 
   const openDetails = () => {
     navigate(detailPath)
