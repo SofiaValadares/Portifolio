@@ -13,8 +13,8 @@ export const projectsData: ProjectModel[] = [
     technologies: [
       'React',
       'TypeScript',
-      'HTML',
-      'CSS'
+      'HTML5',
+      'CSS3'
     ],
     githubUrl: 'https://github.com/SofiaValadares/SnakeGame',
     projectHref: 'https://snakearcade.sofiavcav.dev/',
