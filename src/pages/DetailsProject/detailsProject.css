@@ -1,12 +1,13 @@
 .details-project.page-portfolio-format {
+  height: auto;
   min-height: var(--portifolio-content-height);
   justify-content: flex-start;
   gap: clamp(0.75rem, 2vw, 1.25rem);
 }
 
 .details-project .page-portfolio-format__body {
-  flex: 1 1 auto;
-  min-height: 0;
+  flex: 0 1 auto;
+  min-height: auto;
 }
 
 .details-project .page-portfolio-format__header {
@@ -17,7 +18,6 @@
 .details-project__content {
   display: flex;
   flex-direction: column;
-  flex: 1 1 auto;
   gap: clamp(0.9rem, 2.5vw, 1.5rem);
   width: 100%;
   min-width: 0;
@@ -124,10 +124,12 @@
 }
 
 .details-project__details-media {
+  flex-shrink: 0;
   width: 100%;
   min-width: 0;
   margin: 0;
   overflow: hidden;
+  border-radius: 0.35rem;
   background: var(--primaryText);
 }
 
@@ -135,6 +137,7 @@
   display: block;
   width: 100%;
   height: auto;
+  vertical-align: middle;
 }
 
 .details-project__copyright {

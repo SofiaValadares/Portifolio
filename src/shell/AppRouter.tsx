@@ -25,6 +25,7 @@ export default function AppRouter() {
         <Route path="/splash" element={<SplashRoute />} />
         <Route path="/home" element={<Navigate to="/portfolio" replace />} />
         <Route path="/portfolio" element={<PortfolioRoute />} />
+        <Route path="/portfolio/projeto/:projectId" element={<DetailsProjectRoute />} />
         <Route path="/portifolio/projeto/:projectId" element={<DetailsProjectRoute />} />
         <Route path="/portifolio/detalhes-projeto/:projectId" element={<DetailsProjectRoute />} />
         <Route path="*" element={<Navigate to="/portfolio" replace />} />

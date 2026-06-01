@@ -122,7 +122,7 @@ export default function DetailsProject({
       <SectionConteiner
         sectionId="detalhes-projeto"
         blockClass="page-portfolio-format"
-        className="details-project page-portfolio-format--tall"
+        className="details-project"
         title={
           <button
             type="button"

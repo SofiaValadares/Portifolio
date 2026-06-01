@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom'
 import type { ProjectModel } from '../../../../../../models/ProjectModel'
+import { projectDetailPath } from '../../../../../../routes/paths'
 import './photoProjectCard.css'
 
 interface PhotoProjectCardProps {
@@ -14,9 +16,9 @@ export default function PhotoProjectCard({
 
   return (
     <div className="photo-project-card">
-      <a
+      <Link
         className="photo-project-card__image"
-        href={`/portifolio/projeto/${project.id}`}
+        to={projectDetailPath(project.id)}
         aria-label={label}
       >
         <img
@@ -26,7 +28,7 @@ export default function PhotoProjectCard({
           loading="lazy"
           decoding="async"
         />
-      </a>
+      </Link>
     </div>
   )
 }

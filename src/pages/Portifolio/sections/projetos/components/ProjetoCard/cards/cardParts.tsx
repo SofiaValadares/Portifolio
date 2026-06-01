@@ -1,6 +1,7 @@
 import { Link as LinkIcon } from 'lucide-react'
 import type { KeyboardEvent, MouseEvent, ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { projectDetailPath } from '../../../../../../../routes/paths'
 import type { LanguegeModel } from '../../../../../../../models/LanguegeModel'
 import { IconGithub } from '../../../../../../../components/icons/socialIcons'
 
@@ -23,7 +24,7 @@ export function ProjectCardShell({
   children: ReactNode
 }) {
   const navigate = useNavigate()
-  const detailPath = `/portifolio/projeto/${id}`
+  const detailPath = projectDetailPath(id)
 
   const openDetails = () => {
     navigate(detailPath)
