@@ -2,6 +2,16 @@
   height: auto;
   min-height: var(--portifolio-content-height);
   justify-content: flex-start;
+  align-items: stretch;
+}
+
+.experiencia.page-portfolio-format .page-portfolio-format__body {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
 }
 
 .experiencia__list {
@@ -17,4 +27,21 @@
 
 .experiencia__list > li {
   margin: 0;
+}
+
+@media (max-width: 768px) {
+  .experiencia.page-portfolio-format {
+    min-height: var(--portifolio-content-height);
+    justify-content: flex-start;
+  }
+
+  .experiencia.page-portfolio-format .page-portfolio-format__body {
+    flex: 1 1 auto;
+    min-height: 0;
+    justify-content: center;
+  }
+
+  .experiencia__list {
+    gap: 0.65rem;
+  }
 }

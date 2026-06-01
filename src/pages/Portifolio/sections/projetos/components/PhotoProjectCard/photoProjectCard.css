@@ -53,15 +53,3 @@
   object-fit: cover;
   object-position: center;
 }
-
-@media (max-width: 768px) {
-  .photo-project-card {
-    order: -1;
-    justify-content: center;
-  }
-
-  .photo-project-card__image {
-    max-width: 100%;
-    min-height: min(72svh, 32rem);
-  }
-}

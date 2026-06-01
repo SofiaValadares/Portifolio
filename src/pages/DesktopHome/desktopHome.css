@@ -210,3 +210,9 @@
   color: var(--dock-label-color);
   text-shadow: var(--dock-label-shadow);
 }
+
+@media (max-width: 768px) {
+  .desktop-dock {
+    display: none;
+  }
+}

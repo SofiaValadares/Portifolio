@@ -72,6 +72,9 @@
     gap: clamp(1.25rem, 4vw, 1.75rem);
   }
 
+  .projetos__hero .photo-project-card {
+    display: none;
+  }
 }
 
 @media (max-width: 900px) {

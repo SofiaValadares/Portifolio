@@ -8,7 +8,7 @@ export default function DesktopDock() {
   return (
     <footer className="desktop-dock" role="toolbar" aria-label="Dock do sistema">
       <ul className="desktop-dock__list">
-        <li>
+        <li className="desktop-dock__item--power">
           <button
             type="button"
             className="desktop-dock__action"

@@ -166,3 +166,28 @@
   line-height: 1.4;
   text-align: start;
 }
+
+@media (max-width: 768px) {
+  .experiencie-accordion__header {
+    padding: 0.65rem 0.75rem;
+  }
+
+  .experiencie-accordion__panel {
+    gap: 0.5rem;
+    padding: 0 0.75rem 0.75rem;
+  }
+
+  .experiencie-accordion__body {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .experiencie-accordion__logo-wrap {
+    width: 3.25rem;
+    height: 3.25rem;
+  }
+
+  .experiencie-accordion__copy {
+    gap: 0.5rem;
+  }
+}
