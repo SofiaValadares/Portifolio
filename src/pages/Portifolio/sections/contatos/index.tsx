@@ -1,7 +1,9 @@
 import { Download, Mail } from 'lucide-react'
 import { LinkButton } from '../../../../components/button'
 import { SectionConteiner } from '../../../../components/conteiner'
+import { TecnologicLabelList } from '../../../../components/label'
 import { IconGithub, IconLinkedin } from '../../../../components/icons/socialIcons'
+import { contactTechnologiesList } from '../../../../mocks/portifolio/contactTechnologies'
 import type { SectionContentProps } from '../../../../models/SectionsPortifolioModel'
 import { getYearsOfExperience } from '../../../../utils'
 import PhotoCard from './components/PhotoCard'
@@ -41,11 +43,19 @@ export default function Contatos({ anchorId, title }: SectionContentProps) {
     >
       <div className="contatos__content">
         <div className="contatos__left">
-          <p className="contatos__intro">
-            Com {yearsOfExperience} {yearsOfExperience === 1 ? 'ano' : 'anos'} de experiência em
-            desenvolvimento Full Stack, estou à disposição para novos desafios. Entre em contato
-            para conhecer uma profissional dedicada e criativa.
-          </p>
+          <div className="contatos__intro-group">
+            <p className="contatos__intro">
+              Com {yearsOfExperience} {yearsOfExperience === 1 ? 'ano' : 'anos'} de experiência em
+              desenvolvimento Full Stack, tenho experiência em projetos do setor financeiro, em marketplaces
+              e em diversas outras áreas, atuando em FrontEnd e BackEnd.
+            </p>
+
+            <TecnologicLabelList
+              technologies={contactTechnologiesList}
+              ariaLabel="Tecnologias com que já trabalhei"
+              className="contatos__tech-list"
+            />
+          </div>
 
           <div className="contatos__actions">
             <LinkButton

@@ -9,5 +9,6 @@ export { expertisesCardsData } from './portifolio/expertisesCards'
 export { projectsCardsData } from './portifolio/projectsCards'
 export { DEFAULT_PROJECT_IMAGE, projectsData } from './portifolio/projects'
 export { experiencesAccordionData } from './portifolio/experiencesAccordion'
+export { contactTechnologiesList } from './portifolio/contactTechnologies'
 
 /** Importar direto de `./portifolio/sectionsPortifolioList` (evita ciclo com componentes). */

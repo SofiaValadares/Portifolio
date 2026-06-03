@@ -1,3 +1,5 @@
+import type { LanguegeModel } from './LanguegeModel'
+
 export interface ProjectModel {
   id: string
   name: string
@@ -6,7 +8,7 @@ export interface ProjectModel {
   imagePrimary: string
   imageSecondary?: string
   imageDetails?: string
-  technologies: string[]
+  technologies: LanguegeModel[]
   githubUrl?: string
   projectHref?: string
 }

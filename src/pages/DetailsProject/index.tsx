@@ -26,7 +26,6 @@ import {
   IconLayers,
 } from '../../models/sectionIcons'
 import { IconGithub } from '../../components/icons/socialIcons'
-import { resolveProjectTechnologies } from '../../utils'
 import './detailsProject.css'
 
 export type DetailsProjectProps = {
@@ -58,7 +57,7 @@ export default function DetailsProject({
         project?.description ??
         'Estrutura inicial da página de detalhes do projeto. Adicione descrição, imagens e links no mock de projetos para preencher este conteúdo.',
       imageDetails: project?.imageDetails ?? DEFAULT_PROJECT_IMAGE,
-      technologies: resolveProjectTechnologies(project?.technologies ?? []),
+      technologies: project?.technologies ?? [],
       githubUrl: project?.githubUrl,
       projectHref: project?.projectHref,
       copyright: project?.copyright,

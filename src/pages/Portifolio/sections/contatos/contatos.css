@@ -38,13 +38,32 @@
   min-height: 100%;
 }
 
+.contatos__intro-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(0.85rem, 2.2vw, 1.35rem);
+  width: 100%;
+  max-width: 32rem;
+}
+
 .contatos__intro {
   margin: 0;
-  max-width: 32rem;
+  max-width: 100%;
   color: var(--text-dark-color);
   font-family: var(--font-code);
   font-size: clamp(0.875rem, 2.5vw, 1.25rem);
   line-height: 1.35;
+}
+
+.contatos__tech-list {
+  gap: clamp(0.4rem, 1.2vw, 0.55rem);
+  max-width: 100%;
+}
+
+.contatos__tech-list .tecnologic-label {
+  width: clamp(1.35rem, 3.2vw, 1.75rem);
+  height: clamp(1.35rem, 3.2vw, 1.75rem);
 }
 
 .contatos__actions {
@@ -101,6 +120,10 @@
     width: 100%;
     min-height: 0;
     height: auto;
+  }
+
+  .contatos__intro-group {
+    max-width: 100%;
   }
 
   .contatos__intro {

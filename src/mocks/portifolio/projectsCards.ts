@@ -1,26 +1,62 @@
 import type {
   ProjectCardData,
-  ProjectCardVariation,
 } from '../../models/ProjectCardModel'
 import { projectsData } from './projects'
 
-const cardVariations: ProjectCardVariation[] = [
-  'large',
-  'double-horizontal',
-  'standard',
-  'standard',
-  'standard',
-  'double-vertical',
-  'standard',
+const snakeArcadeID = '1';
+const snakeArcade =
+  projectsData.find((project) => project.id === snakeArcadeID) ??
+  projectsData[0];
+
+const sentinelaID = '2';
+const sentinela =
+  projectsData.find((project) => project.id === sentinelaID) ??
+  projectsData[0];
+
+const pokeTeamGuessID = '3';
+const pokeTeamGuess =
+  projectsData.find((project) => project.id === pokeTeamGuessID) ??
+  projectsData[0]
+
+const calculaID = "4";
+const calcula =
+  projectsData.find((project) => project.id === calculaID) ??
+  projectsData[0];
+
+
+export const projectsCardsData: ProjectCardData[] = [{
+  id: pokeTeamGuess.id,
+  variation: 'large',
+  project: pokeTeamGuess,
+},
+{
+  id: pokeTeamGuess.id,
+  variation: 'double-horizontal',
+  project: pokeTeamGuess,
+},
+{
+  id: snakeArcade.id,
+  variation: 'standard',
+  project: snakeArcade,
+},
+{
+  id: sentinela.id,
+  variation: 'standard',
+  project: sentinela,
+},
+{
+  id: calcula.id,
+  variation: 'standard',
+  project: calcula,
+},
+{
+  id: pokeTeamGuess.id,
+  variation: 'double-vertical',
+  project: pokeTeamGuess,
+},
+{
+  id: pokeTeamGuess.id,
+  variation: 'standard',
+  project: pokeTeamGuess,
+},
 ]
-
-/** Ordem para o grid masonry (3 colunas, `grid-auto-flow: dense`). */
-export const projectsCardsData: ProjectCardData[] = cardVariations.map((variation, index) => {
-  const project = projectsData[index % projectsData.length]
-
-  return {
-    id: project.id,
-    variation,
-    project,
-  }
-})

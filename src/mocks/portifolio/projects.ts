@@ -1,4 +1,5 @@
 import type { ProjectModel } from '../../models/ProjectModel'
+import { langLogo } from '../shared/langLogo'
 
 /** Imagem padrão em `public/default-image.png` quando ainda não há assets do projeto. */
 export const DEFAULT_PROJECT_IMAGE = '/default-image.png'
@@ -12,10 +13,11 @@ export const projectsData: ProjectModel[] = [
     imagePrimary: '/projects/banner/snake-arcade.png',
     imageDetails: '/projects/details/snake-arcade-details.png',
     technologies: [
-      'React',
-      'TypeScript',
-      'HTML5',
-      'CSS3'
+      { name: 'React', icon: langLogo('react.png') },
+      { name: 'TypeScript', icon: langLogo('typescript.png') },
+      { name: 'HTML5', icon: langLogo('html.png') },
+      { name: 'CSS3', icon: langLogo('css.png') },
+      { name: 'Git', icon: langLogo('git.png') },
     ],
     githubUrl: 'https://github.com/SofiaValadares/SnakeGame',
     projectHref: 'https://snakearcade.sofiavcav.dev/',
@@ -26,7 +28,10 @@ export const projectsData: ProjectModel[] = [
     description:
       'SENTINELA é um sistema de monitoramento e análise ambiental focado na Caatinga, desenvolvido pelo grupo Canidé (CESAR School). A API em FastAPI expõe endpoints para avaliar risco de incêndios e focos de queimadas a partir de latitude, longitude e dias sem chuva, além de análise de imagens enviadas pelo cliente. O projeto transforma dados ambientais brutos em informações úteis para pesquisa e preservação do bioma, com viés educativo para quem está aprendendo a trabalhar com APIs e dados reais. Inclui documentação, coleção Postman e deploy na nuvem (Render).',
     imagePrimary: '/projects/banner/sentinela.png',
-    technologies: ['Python', 'Git'],
+    technologies: [
+      { name: 'Python', icon: langLogo('pyhton.png') },
+      { name: 'Git', icon: langLogo('git.png') },
+    ],
     githubUrl: 'https://github.com/SofiaValadares/SENTINELA',
     projectHref: 'https://sentinela-frontend-seven.vercel.app/%20%20nosso%20front%20esta%20deployado!!!',
     copyright:
@@ -37,10 +42,31 @@ export const projectsData: ProjectModel[] = [
     name: 'PokeGuessTeam',
     description:
       'PokeGuessTeam é um jogo local de dedução de times Pokémon feito com HTML, CSS e JavaScript puro (ES Modules), sem bibliotecas externas. O jogador cadastra um treinador, monta um time de seis Pokémon (busca, filtro por geração, time aleatório e drag-and-drop) e disputa palpites contra outro jogador ou contra IA. O painel mostra pistas por slot (tipos, cor, geração, altura e peso), placar em tempo real, bloqueio de palpites repetidos e persistência de perfil, XP e partidas em localStorage. Interface inspirada em Pokédex, com deploy estático na Vercel.',
-    imagePrimary: DEFAULT_PROJECT_IMAGE,
-    imageSecondary: DEFAULT_PROJECT_IMAGE,
-    technologies: ['JavaScript', 'HTML5', 'CSS3', 'Git'],
+    imagePrimary: '/projects/banner/poketeamguess.png',
+    imageSecondary: '/projects/banner/poketeamguess-screem.png',
+    technologies: [
+      { name: 'JavaScript', icon: langLogo('javascript.png') },
+      { name: 'HTML5', icon: langLogo('html.png') },
+      { name: 'CSS3', icon: langLogo('css.png') },
+      { name: 'Git', icon: langLogo('git.png') },
+    ],
     githubUrl: 'https://github.com/SofiaValadares/PokeGuessTeam',
     projectHref: 'https://poke-guess-team.vercel.app/',
+  },
+  {
+    id: '4',
+    name: 'Calcula',
+    description:
+      'Calcula é uma calculadora web com interface limpa e responsiva, pensada para uso rápido no dia a dia. Suporta operações básicas com feedback visual imediato e layout adaptado a desktop e mobile. Projeto publicado na Vercel com código aberto no GitHub.',
+    imagePrimary: '/projects/banner/calcula.png',
+    technologies: [
+      { name: 'Angular', icon: langLogo('angular.png') },
+      { name: 'TypeScript', icon: langLogo('typescript.png') },
+      { name: 'HTML5', icon: langLogo('html.png') },
+      { name: 'CSS3', icon: langLogo('css.png') },
+      { name: 'Git', icon: langLogo('git.png') },
+    ],
+    githubUrl: 'https://github.com/SofiaValadares/calcula',
+    projectHref: 'https://calcula.sofiavcav.dev/',
   },
 ]

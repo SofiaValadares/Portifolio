@@ -1,6 +1,5 @@
 import type { ProjectCardData, ProjectCardVariation } from '../../../../../../models/ProjectCardModel'
 import type { ProjectModel } from '../../../../../../models/ProjectModel'
-import { resolveProjectTechnologies } from '../../../../../../utils'
 import BigCard from './cards/bigCard'
 import HorizontalCard from './cards/horizontalCard'
 import SmallCard from './cards/smallCard'
@@ -42,7 +41,7 @@ export function ProjetoCard(props: ProjectCardData) {
     id: project.id,
     name: project.name,
     images: resolveImages(project, variation),
-    technologies: resolveProjectTechnologies(project.technologies),
+    technologies: project.technologies,
     projectHref: project.projectHref ?? '#projetos',
     githubUrl: project.githubUrl,
   }
