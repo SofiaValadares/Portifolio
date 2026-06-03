@@ -23,11 +23,15 @@ const calcula =
   projectsData.find((project) => project.id === calculaID) ??
   projectsData[0];
 
+const studyAndGrowID = '5';
+const studyAndGrow =
+  projectsData.find((project) => project.id === studyAndGrowID) ??
+  projectsData[0];
 
 export const projectsCardsData: ProjectCardData[] = [{
-  id: pokeTeamGuess.id,
+  id: studyAndGrow.id,
   variation: 'large',
-  project: pokeTeamGuess,
+  project: studyAndGrow,
 },
 {
   id: pokeTeamGuess.id,

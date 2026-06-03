@@ -69,4 +69,19 @@ export const projectsData: ProjectModel[] = [
     githubUrl: 'https://github.com/SofiaValadares/calcula',
     projectHref: 'https://calcula.sofiavcav.dev/',
   },
+  {
+    id: '5',
+    name: 'Study and Grow',
+    description:
+      'Study and Grow é uma aplicação web de estudo com foco em hábito e motivação: cada sessão de estudo faz a árvore do usuário crescer. Oferece cronômetro e técnica Pomodoro, suporte a português e inglês, e interface responsiva pensada para uso diário. Desenvolvido com React, TypeScript, HTML e CSS, com deploy em produção.',
+    imagePrimary: '/projects/banner/study-and-grow.png',
+    technologies: [
+      { name: 'React', icon: langLogo('react.png') },
+      { name: 'TypeScript', icon: langLogo('typescript.png') },
+      { name: 'HTML5', icon: langLogo('html.png') },
+      { name: 'CSS3', icon: langLogo('css.png') },
+    ],
+    githubUrl: 'https://github.com/SofiaValadares/study-and-grow',
+    projectHref: 'https://studyandgrow.sofiavcav.dev',
+  },
 ]
