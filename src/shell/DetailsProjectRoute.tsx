@@ -17,7 +17,7 @@ export default function DetailsProjectRoute() {
 
   const goToSplash = useCallback(() => {
     dispatch(resetPortfolioWindow())
-    navigate('/splash', { replace: true })
+    navigate('/', { replace: true, state: { showSplash: true } })
   }, [dispatch, navigate])
 
   return (

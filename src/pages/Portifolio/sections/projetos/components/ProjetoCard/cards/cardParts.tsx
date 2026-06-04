@@ -1,6 +1,7 @@
 import { Link as LinkIcon } from 'lucide-react'
 import type { KeyboardEvent, MouseEvent, ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from '../../../../../../../i18n/useTranslation'
 import { projectDetailPath } from '../../../../../../../routes/paths'
 import type { LanguegeModel } from '../../../../../../../models/LanguegeModel'
 import { IconGithub } from '../../../../../../../components/icons/socialIcons'
@@ -24,6 +25,7 @@ export function ProjectCardShell({
   children: ReactNode
 }) {
   const navigate = useNavigate()
+  const { t } = useTranslation()
   const detailPath = projectDetailPath(id)
 
   const openDetails = () => {
@@ -41,7 +43,7 @@ export function ProjectCardShell({
       className={className}
       role="link"
       tabIndex={0}
-      aria-label={`Ver detalhes do projeto ${name}`}
+      aria-label={t('projects.viewDetails', { name })}
       onClick={openDetails}
       onKeyDown={handleKeyDown}
     >
@@ -63,6 +65,8 @@ export function ProjectCardHeader({
   projectHref,
   githubUrl,
 }: Pick<ProjetoCardViewProps, 'name' | 'projectHref' | 'githubUrl'>) {
+  const { t } = useTranslation()
+
   return (
     <div className="project-card__top">
       <p className="project-card__name">{name}</p>
@@ -73,7 +77,7 @@ export function ProjectCardHeader({
             href={githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`Repositório GitHub de ${name}`}
+            aria-label={t('projects.githubRepo', { name })}
             onClick={stopCardNavigation}
             onKeyDown={stopCardKeyboardNavigation}
           >
@@ -83,7 +87,7 @@ export function ProjectCardHeader({
         <a
           className="project-card__action"
           href={projectHref}
-          aria-label={`Ver projeto ${name}`}
+          aria-label={t('projects.viewProject', { name })}
           onClick={stopCardNavigation}
           onKeyDown={stopCardKeyboardNavigation}
         >
@@ -122,13 +126,15 @@ export function ProjectCardTechList({
   technologies: LanguegeModel[]
   layout: 'row' | 'column'
 }) {
+  const { t } = useTranslation()
+
   return (
     <ul
       className={[
         'project-card__tech',
         layout === 'column' ? 'project-card__tech--column' : 'project-card__tech--row',
       ].join(' ')}
-      aria-label="Tecnologias"
+      aria-label={t('projects.technologies')}
     >
       {technologies.map((tech) => (
         <li key={tech.name} className="project-card__tech-item">

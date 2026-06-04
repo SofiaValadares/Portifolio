@@ -4,19 +4,17 @@ import {
   projectsCardsData,
   projectsData,
 } from '../../../../mocks'
+import { useTranslation } from '../../../../i18n/useTranslation'
 import PhotoProjectCard from './components/PhotoProjectCard'
 import { ProjetoCard } from './components/ProjetoCard'
 import './projetos.css'
 
-const HEADLINE_LINES = [
-  'INOVAÇÃO COM',
-  'IMPACTO REAL NA',
-  'VIDA DAS PESSOAS',
-] as const
-
 const featuredProject = projectsData[0]
 
 export default function Projetos({ anchorId, title }: SectionContentProps) {
+  const { t, getHeadlineLines } = useTranslation()
+  const headlineLines = getHeadlineLines()
+
   return (
     <SectionConteiner
       sectionId={anchorId}
@@ -25,10 +23,10 @@ export default function Projetos({ anchorId, title }: SectionContentProps) {
       title={<h2 id={`${anchorId}-heading`}>{title}</h2>}
     >
       <div className="projetos__content">
-        <section className="projetos__hero" aria-label="Introdução">
+        <section className="projetos__hero" aria-label={t('projects.intro')}>
           <div className="projetos__hero-copy">
             <p className="projetos__headline">
-              {HEADLINE_LINES.map((line) => (
+              {headlineLines.map((line) => (
                 <span key={line} className="projetos__headline-line">
                   {line}
                 </span>
@@ -39,7 +37,7 @@ export default function Projetos({ anchorId, title }: SectionContentProps) {
           {featuredProject ? <PhotoProjectCard project={featuredProject} /> : null}
         </section>
 
-        <div className="projetos__grid" aria-label="Galeria de projetos">
+        <div className="projetos__grid" aria-label={t('projects.gallery')}>
           {projectsCardsData.map((card, index) => (
             <ProjetoCard key={`${card.id}-${card.variation}-${index}`} {...card} />
           ))}

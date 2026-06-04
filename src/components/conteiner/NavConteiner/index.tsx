@@ -12,7 +12,9 @@ import {
     Power,
     X,
 } from 'lucide-react'
+import LanguageToggle from '../../LanguageToggle'
 import type { SectionsPortifolioModel } from '../../../models/SectionsPortifolioModel.ts'
+import { useTranslation } from '../../../i18n/useTranslation'
 import { useNavigateWithTransition } from '../../../hooks/useNavigateWithTransition'
 import type { BrowserWindowControls } from './types'
 import './browserChrome.css'
@@ -37,6 +39,7 @@ const NavConteiner: React.FC<NavConteinerProps> = (
     }) => {
     const { onMaximize, isMaximized = false } = windowControls
     const navigate = useNavigateWithTransition()
+    const { t } = useTranslation()
     const [menuOpen, setMenuOpen] = useState(false)
     const menuId = useId()
     const activeSection = sections.find((section) => section.anchorId === activeAnchorId)
@@ -110,16 +113,24 @@ const NavConteiner: React.FC<NavConteinerProps> = (
     }
 
     return (
-        <header className="browser-chrome" aria-label="Janela do navegador">
-            <nav className="browser-chrome__tabs" aria-label="Abas do portfólio">
+        <header
+            className={[
+                'browser-chrome',
+                isMaximized ? 'browser-chrome--maximized' : '',
+            ]
+                .filter(Boolean)
+                .join(' ')}
+            aria-label={t('chrome.browserWindow')}
+        >
+            <nav className="browser-chrome__tabs" aria-label={t('chrome.portfolioTabs')}>
                 <div className="browser-chrome__traffic">
                     <button
                         type="button"
                         className="browser-chrome__window-action"
-                        aria-label={isMaximized ? 'Restaurar janela' : 'Maximizar janela'}
+                        aria-label={isMaximized ? t('chrome.restore') : t('chrome.maximize')}
                         aria-pressed={isMaximized}
                         onClick={onMaximize}
-                        title={isMaximized ? 'Restaurar janela' : 'Tela cheia'}
+                        title={isMaximized ? t('chrome.restore') : t('chrome.fullscreen')}
                     >
                         {isMaximized ? (
                             <Minimize2 aria-hidden size={16} strokeWidth={2.35} />
@@ -141,7 +152,7 @@ const NavConteiner: React.FC<NavConteinerProps> = (
                     <button
                         type="button"
                         className="browser-chrome__menu-toggle"
-                        aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
+                        aria-label={menuOpen ? t('chrome.closeMenu') : t('chrome.openMenu')}
                         aria-expanded={menuOpen}
                         aria-controls={menuId}
                         onClick={() => setMenuOpen((open) => !open)}
@@ -153,33 +164,36 @@ const NavConteiner: React.FC<NavConteinerProps> = (
                         )}
                     </button>
                     <span className="browser-chrome__mobile-title">
-                        {activeSection?.title ?? 'Menu'}
+                        {activeSection?.title ?? t('chrome.menu')}
                     </span>
                 </div>
 
-                <button
-                    type="button"
-                    className="browser-chrome__power-action"
-                    aria-label="Desligar — voltar à tela inicial"
-                    title="Desligar"
-                    onClick={() => navigate('/splash')}
-                >
-                    <Power aria-hidden size={18} strokeWidth={2.35} />
-                </button>
+                <div className="browser-chrome__window-actions">
+                    <LanguageToggle variant="chrome" />
+                    <button
+                        type="button"
+                        className="browser-chrome__power-action"
+                        aria-label={t('chrome.powerOff')}
+                        title={t('chrome.powerOffShort')}
+                        onClick={() => navigate('/', { state: { showSplash: true } })}
+                    >
+                        <Power aria-hidden size={18} strokeWidth={2.35} />
+                    </button>
+                </div>
 
                 {menuOpen ? (
                     <>
                         <button
                             type="button"
                             className="browser-chrome__menu-backdrop"
-                            aria-label="Fechar menu"
+                            aria-label={t('chrome.closeMenu')}
                             onClick={() => setMenuOpen(false)}
                         />
                         <div
                             id={menuId}
                             className="browser-chrome__mobile-menu"
                             role="menu"
-                            aria-label="Seções do portfólio"
+                            aria-label={t('chrome.portfolioSections')}
                         >
                             <ul className="browser-chrome__menu-list">
                                 {sections.map((section) => (

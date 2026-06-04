@@ -16,14 +16,13 @@ import {
 import { TecnologicLabelList } from '../../components/label'
 import type { BrowserWindowControls } from '../../components/conteiner'
 import { useNavigateWithTransition } from '../../hooks/useNavigateWithTransition'
+import { useTranslation } from '../../i18n/useTranslation'
 import {
   projectsCardsData,
   projectsData,
 } from '../../mocks'
-import {
-  IconCode,
-  IconLayers,
-} from '../../models/sectionIcons'
+import { IconCode } from '../../models/sectionIcons'
+import { IconPortfolio } from '../../models/portfolioIcon'
 import { IconGithub } from '../../components/icons/socialIcons'
 import { ProjectDetailsContent } from './components/detailsSection'
 import './detailsProject.css'
@@ -39,6 +38,7 @@ export default function DetailsProject({
 }: DetailsProjectProps) {
   const { projectId } = useParams()
   const navigate = useNavigateWithTransition()
+  const { t, getProjectDescription, getProjectCopyright } = useTranslation()
 
   const card = useMemo(
     () => projectsCardsData.find((item) => item.id === projectId),
@@ -51,25 +51,29 @@ export default function DetailsProject({
   )
 
   const detail = useMemo(() => {
+    const fallbackDescription = project?.description ?? t('details.projectFallback')
+
     return {
-      name: project?.name ?? 'Projeto não encontrado',
-      description:
-        project?.description ??
-        'Estrutura inicial da página de detalhes do projeto. Adicione descrição, imagens e links no mock de projetos para preencher este conteúdo.',
+      name: project?.name ?? t('details.projectNotFound'),
+      description: project
+        ? getProjectDescription(project.id, fallbackDescription)
+        : fallbackDescription,
       technologies: project?.technologies ?? [],
       githubUrl: project?.githubUrl,
       projectHref: project?.projectHref,
-      copyright: project?.copyright,
+      copyright: project?.copyright
+        ? getProjectCopyright(project.id, project.copyright)
+        : undefined,
       found: project != null,
     }
-  }, [project])
+  }, [project, t, getProjectDescription, getProjectCopyright])
 
   const tabs = useMemo(
     () => [
       {
-        title: 'Portfólio',
+        title: t('chrome.portfolio'),
         anchorId: 'portfolio',
-        icon: <IconLayers />,
+        icon: <IconPortfolio />,
         href: '/portfolio#projetos',
         onClick: (event: MouseEvent<HTMLAnchorElement>) => {
           event.preventDefault()
@@ -82,7 +86,7 @@ export default function DetailsProject({
         icon: <IconCode />,
       },
     ],
-    [detail.name, navigate],
+    [detail.name, navigate, t],
   )
 
   const goBack = () => {
@@ -108,7 +112,7 @@ export default function DetailsProject({
   return (
     <PageConteiner
       isFullscreen={isMaximized}
-      ariaLabel={`Detalhes do projeto ${detail.name}`}
+      ariaLabel={t('details.ariaLabel', { name: detail.name })}
       nav={
         <NavConteiner
           sections={tabs}
@@ -126,10 +130,10 @@ export default function DetailsProject({
             type="button"
             className="details-project__back"
             onClick={goBack}
-            aria-label="Voltar para a página anterior"
+            aria-label={t('details.backAria')}
           >
             <ArrowLeft className="details-project__back-icon" strokeWidth={2.4} />
-            <span>Projeto</span>
+            <span>{t('details.back')}</span>
           </button>
         }
       >
@@ -145,7 +149,7 @@ export default function DetailsProject({
               />
             </div>
 
-            <div className="details-project__actions" aria-label="Links do projeto">
+            <div className="details-project__actions" aria-label={t('details.projectLinks')}>
               {detail.githubUrl ? (
                 <LinkButton
                   label="GitHub"
@@ -156,7 +160,7 @@ export default function DetailsProject({
               ) : null}
               {detail.projectHref ? (
                 <LinkButton
-                  label="Página do Projeto"
+                  label={t('details.projectPage')}
                   icon={<LinkIcon strokeWidth={2.25} />}
                   onClick={() => openProjectLink(detail.projectHref!)}
                   className="details-project__link"

@@ -9,30 +9,39 @@ import {
   IconCheckSquare,
   IconLayers,
 } from '../../models/sectionIcons'
+import type { Locale } from '../../i18n/localeSlice'
+import { translate } from '../../i18n/translations'
 
-export const sectionsPortifolioList: SectionsPortifolioModel[] = [
-  {
-    title: 'Expertises',
-    anchorId: 'expertises',
-    icon: <IconCheckSquare />,
-    content: Expertises,
-  },
-  {
-    title: 'Projetos',
-    anchorId: 'projetos',
-    icon: <IconLayers />,
-    content: Projetos,
-  },
-  {
-    title: 'Experiência',
-    anchorId: 'experiencia',
-    icon: <IconBriefcase />,
-    content: Experiencia,
-  },
-  {
-    title: 'Contatos',
-    anchorId: 'contatos',
-    icon: <IconAtSign />,
-    content: Contatos,
-  },
-]
+export function getSectionsPortifolioList(locale: Locale): SectionsPortifolioModel[] {
+  const t = (key: string) => translate(locale, key)
+
+  return [
+    {
+      title: t('sections.expertises'),
+      anchorId: 'expertises',
+      icon: <IconCheckSquare />,
+      content: Expertises,
+    },
+    {
+      title: t('sections.projects'),
+      anchorId: 'projetos',
+      icon: <IconLayers />,
+      content: Projetos,
+    },
+    {
+      title: t('sections.experience'),
+      anchorId: 'experiencia',
+      icon: <IconBriefcase />,
+      content: Experiencia,
+    },
+    {
+      title: t('sections.contacts'),
+      anchorId: 'contatos',
+      icon: <IconAtSign />,
+      content: Contatos,
+    },
+  ]
+}
+
+/** @deprecated Use getSectionsPortifolioList(locale) */
+export const sectionsPortifolioList = getSectionsPortifolioList('pt')

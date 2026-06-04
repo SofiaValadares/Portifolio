@@ -16,7 +16,7 @@ export default function PortfolioRoute() {
 
   const goToSplash = useCallback(() => {
     dispatch(resetPortfolioWindow())
-    navigate('/splash', { replace: true })
+    navigate('/', { replace: true, state: { showSplash: true } })
   }, [dispatch, navigate])
 
   return (

@@ -5,6 +5,7 @@ import { TecnologicLabelList } from '../../../../components/label'
 import { IconGithub, IconLinkedin } from '../../../../components/icons/socialIcons'
 import { contactTechnologiesList } from '../../../../mocks/portifolio/contactTechnologies'
 import type { SectionContentProps } from '../../../../models/SectionsPortifolioModel'
+import { useTranslation } from '../../../../i18n/useTranslation'
 import { getYearsOfExperience } from '../../../../utils'
 import PhotoCard from './components/PhotoCard'
 import './contatos.css'
@@ -12,6 +13,7 @@ import './contatos.css'
 const CAREER_START = new Date(2024, 8, 19) // 19/09/2024
 
 export default function Contatos({ anchorId, title }: SectionContentProps) {
+  const { t } = useTranslation()
   const yearsOfExperience = getYearsOfExperience(CAREER_START)
 
   const openLinkedin = () => {
@@ -45,14 +47,14 @@ export default function Contatos({ anchorId, title }: SectionContentProps) {
         <div className="contatos__left">
           <div className="contatos__intro-group">
             <p className="contatos__intro">
-              Com {yearsOfExperience} {yearsOfExperience === 1 ? 'ano' : 'anos'} de experiência em
-              desenvolvimento Full Stack, tenho experiência em projetos do setor financeiro, em marketplaces
-              e em diversas outras áreas, atuando em FrontEnd e BackEnd.
+              {yearsOfExperience === 1
+                ? t('contacts.introOneYear')
+                : t('contacts.intro', { years: yearsOfExperience })}
             </p>
 
             <TecnologicLabelList
               technologies={contactTechnologiesList}
-              ariaLabel="Tecnologias com que já trabalhei"
+              ariaLabel={t('contacts.technologiesWorked')}
               className="contatos__tech-list"
             />
           </div>
@@ -74,7 +76,7 @@ export default function Contatos({ anchorId, title }: SectionContentProps) {
               onClick={openEmail}
             />
             <LinkButton
-              label="currículo"
+              label={t('contacts.resume')}
               icon={<Download strokeWidth={2} />}
               onClick={downloadCurriculo}
             />

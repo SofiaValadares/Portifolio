@@ -1,10 +1,14 @@
 import type { SectionContentProps } from '../../../../models/SectionsPortifolioModel'
 import { SectionConteiner } from '../../../../components/conteiner'
-import { experiencesAccordionData } from '../../../../mocks/portifolio/experiencesAccordion'
+import { useExperiencesAccordionData } from '../../../../mocks/portifolio/experiencesAccordion'
+import { useTranslation } from '../../../../i18n/useTranslation'
 import ExperienceAcordion from './components/ExperienceAcordion'
 import './experiencia.css'
 
 export default function Experiencia({ anchorId, title }: SectionContentProps) {
+  const { locale } = useTranslation()
+  const experiencesAccordionData = useExperiencesAccordionData(locale)
+
   return (
     <SectionConteiner
       sectionId={anchorId}

@@ -3,6 +3,7 @@ import { useId, useMemo, useState, type FC } from 'react'
 import { IconButton } from '../../../../../../components/button'
 import { TecnologicLabelList } from '../../../../../../components/label'
 import type { ExperienceAccordionProps } from '../../../../../../models/ExperienceAccordionModel'
+import { useTranslation } from '../../../../../../i18n/useTranslation'
 import {
   experienceDurationLabel,
   formatExperienceDate,
@@ -22,10 +23,11 @@ const ExperienceAcordion: FC<ExperienceAccordionProps> = ({
   const [isOpen, setIsOpen] = useState(isOpenDefault)
   const panelId = useId()
   const isCurrent = dateEnd == null
+  const { locale, t } = useTranslation()
 
   const duration = useMemo(
-    () => experienceDurationLabel(dateStart, dateEnd),
-    [dateStart, dateEnd],
+    () => experienceDurationLabel(dateStart, dateEnd, locale),
+    [dateStart, dateEnd, locale],
   )
 
   const dateStartLabel = useMemo(
@@ -56,7 +58,7 @@ const ExperienceAcordion: FC<ExperienceAccordionProps> = ({
               {', '}
               {position}
               {isCurrent ? (
-                <span className="experiencie-accordion__tag-atual">atual</span>
+                <span className="experiencie-accordion__tag-atual">{t('experience.current')}</span>
               ) : null}
             </p>
             <p className="experiencie-accordion__meta">
@@ -89,7 +91,7 @@ const ExperienceAcordion: FC<ExperienceAccordionProps> = ({
               strokeWidth={2}
             />
           }
-          ariaLabel={isOpen ? 'Recolher experiência' : 'Expandir experiência'}
+          ariaLabel={isOpen ? t('experience.collapse') : t('experience.expand')}
           ariaPressed={isOpen}
           onClick={toggleOpen}
         />

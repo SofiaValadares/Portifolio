@@ -131,7 +131,7 @@
   align-items: center;
   justify-content: center;
   gap: clamp(0.75rem, 3vw, 1.8rem);
-  width: min(100%, 24rem);
+  width: min(100%, 28rem);
   margin: 0;
   padding: 0.45rem 0.85rem;
   list-style: none;
@@ -153,6 +153,8 @@
 .desktop-dock__list > li {
   flex: 0 0 auto;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 

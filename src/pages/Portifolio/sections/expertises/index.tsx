@@ -1,10 +1,14 @@
 import type { SectionContentProps } from '../../../../models/SectionsPortifolioModel'
 import { SectionConteiner } from '../../../../components/conteiner'
-import { expertisesCardsData } from '../../../../mocks'
+import { useExpertisesCardsData } from '../../../../mocks/portifolio/expertisesCards'
+import { useTranslation } from '../../../../i18n/useTranslation'
 import ExpertisesCard from './components/ExpertisesCard'
 import './expertises.css'
 
 export default function Expertises({ anchorId, title }: SectionContentProps) {
+  const { locale, t } = useTranslation()
+  const expertisesCardsData = useExpertisesCardsData(locale)
+
   return (
     <SectionConteiner
       sectionId={anchorId}
@@ -14,8 +18,10 @@ export default function Expertises({ anchorId, title }: SectionContentProps) {
     >
       <div className="expertises__content">
         <p className="ds-big-text expertises__intro">
-          <span>Desenvolvimento Web</span> em <span>Contextos Ágeis</span> com soluções de ponta a
-          ponta: <span>Front-end e Back-end</span>.
+          <span>{t('expertises.introLead')}</span>
+          {locale === 'pt' ? ' em ' : ' in '}
+          <span>{t('expertises.introAgile')}</span> {t('expertises.introMiddle')}{' '}
+          <span>{t('expertises.introStack')}</span>.
         </p>
 
         <div className="expertises__cards">

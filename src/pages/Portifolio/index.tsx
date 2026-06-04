@@ -9,34 +9,49 @@ import {
   PageConteiner,
 } from '../../components/conteiner'
 import type { BrowserWindowControls } from '../../components/conteiner'
-import { sectionsPortifolioList } from '../../mocks/portifolio/sectionsPortifolioList'
+import { useTranslation } from '../../i18n/useTranslation'
+import { getSectionsPortifolioList } from '../../mocks/portifolio/sectionsPortifolioList'
 
 export type PortifolioProps = {
   isMaximized?: boolean
   windowControls: BrowserWindowControls
 }
 
-function resolveAnchorFromHash(): string | null {
-  const id = window.location.hash.slice(1)
-  if (!id) return null
-  return sectionsPortifolioList.some((s) => s.anchorId === id) ? id : null
-}
-
 export default function Portifolio({
   isMaximized = false,
   windowControls,
 }: PortifolioProps) {
+  const { locale, t } = useTranslation()
+  const sectionsPortifolioList = useMemo(
+    () => getSectionsPortifolioList(locale),
+    [locale],
+  )
   const [scrollRoot, setScrollRoot] = useState<HTMLDivElement | null>(null)
 
   const defaultAnchor = useMemo(
     () => sectionsPortifolioList[0]?.anchorId ?? '',
-    [],
+    [sectionsPortifolioList],
   )
+
+  const resolveAnchorFromHash = useCallback(() => {
+    const id = window.location.hash.slice(1)
+    if (!id) return null
+    return sectionsPortifolioList.some((s) => s.anchorId === id) ? id : null
+  }, [sectionsPortifolioList])
 
   const [activeAnchorId, setActiveAnchorId] = useState(() => {
     if (typeof window === 'undefined') return defaultAnchor
     return resolveAnchorFromHash() ?? defaultAnchor
   })
+
+  useEffect(() => {
+    setActiveAnchorId((prev) => {
+      if (sectionsPortifolioList.some((section) => section.anchorId === prev)) {
+        return prev
+      }
+      return defaultAnchor
+    })
+  }, [defaultAnchor, sectionsPortifolioList])
 
   const syncActiveFromScroll = useCallback(() => {
     if (!scrollRoot) return
@@ -64,7 +79,7 @@ export default function Portifolio({
       }
     }
     setActiveAnchorId((prev) => (prev === best ? prev : best))
-  }, [defaultAnchor, scrollRoot])
+  }, [defaultAnchor, scrollRoot, sectionsPortifolioList])
 
   useEffect(() => {
     if (!scrollRoot) return
@@ -86,13 +101,13 @@ export default function Portifolio({
       window.removeEventListener('hashchange', onHash)
       ro.disconnect()
     }
-  }, [scrollRoot, syncActiveFromScroll])
+  }, [scrollRoot, syncActiveFromScroll, resolveAnchorFromHash])
 
   return (
     <PageConteiner
       isFullscreen={isMaximized}
       onScrollViewportRef={setScrollRoot}
-      ariaLabel="Portfólio"
+      ariaLabel={t('chrome.portfolio')}
       nav={
         <NavConteiner
           sections={sectionsPortifolioList}
