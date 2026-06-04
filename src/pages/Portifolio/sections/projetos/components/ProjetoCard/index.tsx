@@ -22,11 +22,9 @@ function imageCountFor(variation: ProjectCardVariation): number {
 
 function resolveImages(project: ProjectModel, variation: ProjectCardVariation): string[] {
   const count = imageCountFor(variation)
-  const list = [
-    project.imagePrimary,
-    project.imageSecondary,
-    project.imageDetails,
-  ].filter((image): image is string => Boolean(image))
+  const list = [project.imagePrimary, project.imageSecondary].filter(
+    (image): image is string => Boolean(image),
+  )
 
   while (list.length < count) {
     list.push(DEFAULT_IMAGE)

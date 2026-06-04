@@ -1,4 +1,11 @@
+import type { ComponentType } from 'react'
 import type { LanguegeModel } from './LanguegeModel'
+
+export type ProjectDetailsComponentProps = {
+  project: ProjectModel
+}
+
+export type ProjectDetailsComponent = ComponentType<ProjectDetailsComponentProps>
 
 export interface ProjectModel {
   id: string
@@ -7,8 +14,8 @@ export interface ProjectModel {
   copyright?: string
   imagePrimary: string
   imageSecondary?: string
-  imageDetails?: string
   technologies: LanguegeModel[]
   githubUrl?: string
   projectHref?: string
+  detailsComponent: ProjectDetailsComponent
 }

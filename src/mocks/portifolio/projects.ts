@@ -1,5 +1,10 @@
 import type { ProjectModel } from '../../models/ProjectModel'
 import { langLogo } from '../shared/langLogo'
+import CalculaDetails from './detalhes/CalculaDetails'
+import PokeGuessTeamDetails from './detalhes/PokeGuessTeamDetails'
+import SentinelaDetails from './detalhes/SentinelaDetails'
+import SnakeArcadeDetails from './detalhes/SnakeArcadeDetails'
+import StudyAndGrowDetails from './detalhes/StudyAndGrowDetails'
 
 /** Imagem padrão em `public/default-image.png` quando ainda não há assets do projeto. */
 export const DEFAULT_PROJECT_IMAGE = '/default-image.png'
@@ -11,7 +16,6 @@ export const projectsData: ProjectModel[] = [
     description:
       'Snake Arcade é um jogo clássico da cobra feito com React 19, TypeScript e React Router, com identidade visual retro/arcade. No menu, o jogador escolhe cor primária e secundária da cobra (presets ou cor personalizada) e vê uma pré-visualização em tempo real. Na partida, a cobra cresce ao comer maçãs, há colisão com paredes e com o próprio corpo, pontuação em tempo real e recorde persistente no navegador. Os controlos funcionam por teclado (setas ou WASD) e por botões no ecrã; o layout adapta-se a desktop e mobile, com tabuleiro e painel de comandos lado a lado. O projeto inclui design system em CSS, testes automatizados com Jest e deploy na Vercel.',
     imagePrimary: '/projects/banner/snake-arcade.png',
-    imageDetails: '/projects/details/snake-arcade-details.png',
     technologies: [
       { name: 'React', icon: langLogo('react.png') },
       { name: 'TypeScript', icon: langLogo('typescript.png') },
@@ -21,6 +25,7 @@ export const projectsData: ProjectModel[] = [
     ],
     githubUrl: 'https://github.com/SofiaValadares/SnakeGame',
     projectHref: 'https://snakearcade.sofiavcav.dev/',
+    detailsComponent: SnakeArcadeDetails,
   },
   {
     id: '2',
@@ -36,6 +41,7 @@ export const projectsData: ProjectModel[] = [
     projectHref: 'https://sentinela-frontend-seven.vercel.app/%20%20nosso%20front%20esta%20deployado!!!',
     copyright:
       'Desenvolvido pelo grupo Canidé (CESAR School): Maria Luiza Calife, Danilo Albuquerque, Guilherme Silveira, Sofia Valadares, João Vítor Fittipaldi, Gabriel Caetano, Arthur Suzuki e Marina Frias.',
+    detailsComponent: SentinelaDetails,
   },
   {
     id: '3',
@@ -52,6 +58,7 @@ export const projectsData: ProjectModel[] = [
     ],
     githubUrl: 'https://github.com/SofiaValadares/PokeGuessTeam',
     projectHref: 'https://poke-guess-team.vercel.app/',
+    detailsComponent: PokeGuessTeamDetails,
   },
   {
     id: '4',
@@ -68,6 +75,7 @@ export const projectsData: ProjectModel[] = [
     ],
     githubUrl: 'https://github.com/SofiaValadares/calcula',
     projectHref: 'https://calcula.sofiavcav.dev/',
+    detailsComponent: CalculaDetails,
   },
   {
     id: '5',
@@ -83,5 +91,6 @@ export const projectsData: ProjectModel[] = [
     ],
     githubUrl: 'https://github.com/SofiaValadares/study-and-grow',
     projectHref: 'https://studyandgrow.sofiavcav.dev',
+    detailsComponent: StudyAndGrowDetails,
   },
 ]

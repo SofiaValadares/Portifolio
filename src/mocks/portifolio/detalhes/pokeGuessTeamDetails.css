@@ -1,0 +1,491 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@600;700;800&display=swap');
+
+.poke-guess-details {
+  --pg-red: #c62828;
+  --pg-red-dark: #8e0000;
+  --pg-red-light: #ef5350;
+  --pg-blue: #1a237e;
+  --pg-blue-light: #283593;
+  --pg-gold: #ffc107;
+  --pg-gold-dark: #ff8f00;
+  --pg-surface: #fafafa;
+  --pg-panel: #ffffff;
+  --pg-text: #37474f;
+  --pg-text-light: #eceff1;
+  --pg-text-dark: #212121;
+  --pg-green: #2e7d32;
+  --pg-border: rgba(198, 40, 40, 0.28);
+  --pg-shadow: rgba(33, 33, 33, 0.12);
+
+  width: 100%;
+  min-width: 0;
+  padding: clamp(1.25rem, 3vw, 2rem) clamp(1rem, 2.5vw, 1.75rem);
+  background: linear-gradient(180deg, #fff5f5 0%, #ffebee 100%);
+  color: var(--pg-text);
+  box-sizing: border-box;
+  font-family: 'Montserrat Alternates', var(--font-display);
+}
+
+.poke-guess-details__inner {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.75rem, 4vw, 3rem);
+  width: 100%;
+  margin-inline: auto;
+}
+
+.poke-guess-details__hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: clamp(0.75rem, 2vw, 1.25rem);
+  border: 3px solid var(--pg-red-dark);
+  border-radius: 1rem;
+  background: var(--pg-red);
+  box-shadow:
+    inset 0 0 0 2px var(--pg-red-light),
+    0 6px 20px var(--pg-shadow);
+  overflow: hidden;
+}
+
+.poke-guess-details__hero-lens {
+  position: absolute;
+  top: 0.65rem;
+  left: clamp(0.75rem, 3vw, 1.5rem);
+  width: clamp(2.5rem, 7vw, 3.5rem);
+  height: clamp(2.5rem, 7vw, 3.5rem);
+  pointer-events: none;
+}
+
+.poke-guess-details__hero-lens-ring,
+.poke-guess-details__hero-lens-core {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.poke-guess-details__hero-lens-ring {
+  inset: 0;
+  background: radial-gradient(circle at 35% 35%, #fff9c4, var(--pg-gold) 55%, var(--pg-gold-dark));
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.poke-guess-details__hero-lens-core {
+  inset: 28%;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.poke-guess-details__title {
+  margin: 0;
+  color: var(--pg-gold);
+  font-size: clamp(1.2rem, 3.8vw, 2.2rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: 0.04em;
+  text-align: center;
+  text-shadow: 0 2px 0 var(--pg-red-dark);
+}
+
+.poke-guess-details__tagline {
+  margin: 0;
+  color: var(--pg-text-light);
+  font-size: clamp(0.78rem, 1.8vw, 0.95rem);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
+.poke-guess-details__section {
+  display: grid;
+  gap: clamp(1.25rem, 3vw, 2rem);
+}
+
+.poke-guess-details__heading {
+  margin: 0 0 0.5rem;
+  color: var(--pg-red-dark);
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.poke-guess-details__heading--center {
+  text-align: center;
+}
+
+.poke-guess-details__subheading {
+  margin: 0 0 0.35rem;
+  color: var(--pg-blue);
+  font-size: clamp(0.82rem, 1.5vw, 0.95rem);
+  font-weight: 800;
+}
+
+.poke-guess-details__text {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-code);
+  font-size: clamp(0.72rem, 1.3vw, 0.88rem);
+  line-height: 1.55;
+}
+
+.poke-guess-details__text:last-child {
+  margin-bottom: 0;
+}
+
+.poke-guess-details__intro {
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(1rem, 3vw, 2rem);
+}
+
+.poke-guess-details__features {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.poke-guess-details__feature {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.75rem 0.85rem;
+  border: 2px solid var(--pg-border);
+  border-radius: 0.65rem;
+  background: var(--pg-panel);
+  box-shadow: 0 2px 8px var(--pg-shadow);
+}
+
+.poke-guess-details__feature-label {
+  color: var(--pg-red-dark);
+  font-size: clamp(0.82rem, 1.5vw, 0.95rem);
+  font-weight: 800;
+}
+
+.poke-guess-details__feature-detail {
+  font-family: var(--font-code);
+  font-size: clamp(0.65rem, 1.15vw, 0.75rem);
+  line-height: 1.3;
+}
+
+.poke-guess-details__journey-list {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.poke-guess-details__journey-step {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: start;
+  padding: 0.85rem 1rem;
+  border: 2px solid var(--pg-border);
+  border-radius: 0.65rem;
+  background: var(--pg-panel);
+  box-shadow: 0 2px 8px var(--pg-shadow);
+}
+
+.poke-guess-details__journey-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: var(--pg-gold);
+  color: var(--pg-red-dark);
+  font-size: 0.78rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.poke-guess-details__journey-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.poke-guess-details__journey-title {
+  color: var(--pg-text-dark);
+  font-size: clamp(0.78rem, 1.4vw, 0.9rem);
+}
+
+.poke-guess-details__journey-detail {
+  font-family: var(--font-code);
+  font-size: clamp(0.65rem, 1.15vw, 0.76rem);
+  line-height: 1.45;
+}
+
+.poke-guess-details__gameplay {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  align-items: start;
+  gap: clamp(1rem, 3vw, 2rem);
+}
+
+.poke-guess-details__clues {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.poke-guess-details__clue {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.4rem;
+  background: var(--pg-blue);
+  color: var(--pg-text-light);
+}
+
+.poke-guess-details__clue-label {
+  font-size: clamp(0.62rem, 1.05vw, 0.72rem);
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.poke-guess-details__clue-detail {
+  font-family: var(--font-code);
+  font-size: clamp(0.58rem, 1vw, 0.66rem);
+  opacity: 0.85;
+}
+
+.poke-guess-details__game-preview {
+  margin: 0;
+}
+
+.poke-guess-details__game-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 3px solid var(--pg-red-dark);
+  border-radius: 0.75rem;
+  background: var(--pg-panel);
+  box-shadow: 0 6px 24px var(--pg-shadow);
+}
+
+.poke-guess-details__modes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+}
+
+.poke-guess-details__mode-card {
+  padding: 1rem 1.1rem;
+  border: 2px solid var(--pg-border);
+  border-radius: 0.75rem;
+  background: var(--pg-panel);
+  box-shadow: 0 2px 10px var(--pg-shadow);
+}
+
+.poke-guess-details__architecture {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  align-items: start;
+  gap: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.poke-guess-details__flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  border: 2px solid var(--pg-border);
+  border-radius: 0.75rem;
+  background: var(--pg-surface);
+}
+
+.poke-guess-details__flow-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  width: 100%;
+  text-align: center;
+}
+
+.poke-guess-details__flow-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  width: 100%;
+  max-width: 14rem;
+  padding: 0.55rem 0.85rem;
+  border: 2px solid var(--pg-blue-light);
+  border-radius: 0.5rem;
+  background: var(--pg-blue);
+  color: var(--pg-text-light);
+}
+
+.poke-guess-details__flow-label {
+  font-size: clamp(0.72rem, 1.3vw, 0.82rem);
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.poke-guess-details__flow-sub {
+  font-family: var(--font-code);
+  font-size: clamp(0.6rem, 1.05vw, 0.7rem);
+  opacity: 0.85;
+}
+
+.poke-guess-details__flow-line {
+  display: block;
+  width: 2px;
+  height: 0.85rem;
+  background: var(--pg-red);
+  opacity: 0.45;
+}
+
+.poke-guess-details__flow-routes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 100%;
+}
+
+.poke-guess-details__flow-routes span {
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--pg-border);
+  border-radius: 999px;
+  background: var(--pg-gold);
+  color: var(--pg-red-dark);
+  font-family: var(--font-code);
+  font-size: clamp(0.58rem, 1vw, 0.68rem);
+  font-weight: 700;
+}
+
+.poke-guess-details__flow-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.poke-guess-details__flow-row .poke-guess-details__flow-step {
+  flex: 1 1 5.5rem;
+}
+
+.poke-guess-details__flow-row .poke-guess-details__flow-box {
+  max-width: none;
+}
+
+.poke-guess-details__code-block {
+  margin: 0.65rem 0 0;
+  padding: 0.85rem 1rem;
+  overflow-x: auto;
+  border: 2px solid var(--pg-border);
+  border-radius: 0.5rem;
+  background: var(--pg-surface);
+  color: var(--pg-text-dark);
+  font-family: var(--font-code);
+  font-size: clamp(0.58rem, 1.05vw, 0.7rem);
+  line-height: 1.5;
+  white-space: pre;
+}
+
+.poke-guess-details__stack-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.poke-guess-details__stack-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.75rem 0.85rem;
+  border: 2px solid var(--pg-border);
+  border-radius: 0.65rem;
+  background: var(--pg-panel);
+  box-shadow: 0 2px 8px var(--pg-shadow);
+}
+
+.poke-guess-details__stack-name {
+  color: var(--pg-red-dark);
+  font-size: clamp(0.76rem, 1.3vw, 0.86rem);
+  font-weight: 800;
+}
+
+.poke-guess-details__stack-detail {
+  font-family: var(--font-code);
+  font-size: clamp(0.6rem, 1.05vw, 0.7rem);
+  line-height: 1.35;
+}
+
+.poke-guess-details__footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding-top: 0.75rem;
+  border-top: 2px solid var(--pg-border);
+  text-align: center;
+}
+
+.poke-guess-details__visit-label {
+  margin: 0;
+  font-size: clamp(0.72rem, 1.3vw, 0.85rem);
+  font-weight: 700;
+}
+
+.poke-guess-details__visit-link {
+  color: var(--pg-red-dark);
+  font-family: var(--font-code);
+  font-size: clamp(0.68rem, 1.25vw, 0.82rem);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  word-break: break-all;
+}
+
+.poke-guess-details__visit-link:hover {
+  color: var(--pg-blue);
+}
+
+.poke-guess-details__visit-link:focus-visible {
+  outline: 2px solid var(--pg-red);
+  outline-offset: 3px;
+}
+
+.poke-guess-details__credit {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-code);
+  font-size: clamp(0.58rem, 1vw, 0.68rem);
+  opacity: 0.75;
+}
+
+@media (max-width: 720px) {
+  .poke-guess-details__intro,
+  .poke-guess-details__gameplay,
+  .poke-guess-details__architecture,
+  .poke-guess-details__modes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .poke-guess-details__stack-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 420px) {
+  .poke-guess-details__features,
+  .poke-guess-details__stack-grid {
+    grid-template-columns: 1fr;
+  }
+}

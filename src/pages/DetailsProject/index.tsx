@@ -17,7 +17,6 @@ import { TecnologicLabelList } from '../../components/label'
 import type { BrowserWindowControls } from '../../components/conteiner'
 import { useNavigateWithTransition } from '../../hooks/useNavigateWithTransition'
 import {
-  DEFAULT_PROJECT_IMAGE,
   projectsCardsData,
   projectsData,
 } from '../../mocks'
@@ -26,6 +25,7 @@ import {
   IconLayers,
 } from '../../models/sectionIcons'
 import { IconGithub } from '../../components/icons/socialIcons'
+import { ProjectDetailsContent } from './components/detailsSection'
 import './detailsProject.css'
 
 export type DetailsProjectProps = {
@@ -56,7 +56,6 @@ export default function DetailsProject({
       description:
         project?.description ??
         'Estrutura inicial da página de detalhes do projeto. Adicione descrição, imagens e links no mock de projetos para preencher este conteúdo.',
-      imageDetails: project?.imageDetails ?? DEFAULT_PROJECT_IMAGE,
       technologies: project?.technologies ?? [],
       githubUrl: project?.githubUrl,
       projectHref: project?.projectHref,
@@ -166,15 +165,9 @@ export default function DetailsProject({
             </div>
           </header>
 
-          <figure className="details-project__details-media">
-            <img
-              className="details-project__details-image"
-              src={detail.imageDetails}
-              alt={`Detalhes do projeto ${detail.name}`}
-              loading="eager"
-              decoding="async"
-            />
-          </figure>
+          <div className="details-project__details-media">
+            <ProjectDetailsContent project={project} />
+          </div>
 
           {detail.copyright ? (
             <p className="details-project__copyright">* {detail.copyright}</p>

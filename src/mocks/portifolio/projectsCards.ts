@@ -53,14 +53,14 @@ export const projectsCardsData: ProjectCardData[] = [{
   variation: 'standard',
   project: calcula,
 },
-{
-  id: pokeTeamGuess.id,
-  variation: 'double-vertical',
-  project: pokeTeamGuess,
-},
-{
-  id: pokeTeamGuess.id,
-  variation: 'standard',
-  project: pokeTeamGuess,
-},
+//{
+//  id: pokeTeamGuess.id,
+//  variation: 'double-vertical',
+//  project: pokeTeamGuess,
+//},
+//{
+//  id: pokeTeamGuess.id,
+//  variation: 'standard',
+//  project: pokeTeamGuess,
+//},
 ]

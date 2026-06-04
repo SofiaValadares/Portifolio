@@ -1,0 +1,28 @@
+.pixel-decor {
+  display: flex;
+  flex-shrink: 0;
+  gap: 0.22rem;
+}
+
+.pixel-decor--column {
+  flex-direction: column;
+}
+
+.pixel-decor--row {
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.pixel-decor__cell {
+  flex-shrink: 0;
+  width: clamp(0.62rem, 1.05vw, 0.78rem);
+  height: clamp(0.62rem, 1.05vw, 0.78rem);
+}
+
+.pixel-decor__cell--cyan {
+  background: var(--sa-cyan, #00ffff);
+}
+
+.pixel-decor__cell--pink {
+  background: var(--sa-pink, #ff007f);
+}

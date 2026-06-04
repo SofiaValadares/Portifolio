@@ -1,0 +1,341 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.snake-arcade-details {
+  --sa-bg: #0d0d1a;
+  --sa-yellow: #f8e71c;
+  --sa-cyan: #00ffff;
+  --sa-pink: #ff007f;
+  --sa-text: #ffffff;
+  --sa-border: rgba(0, 255, 255, 0.72);
+  --sa-panel: #10101c;
+  --sa-content-max: 100%;
+
+  width: 100%;
+  min-width: 0;
+  padding: clamp(1.25rem, 3vw, 2rem) clamp(1rem, 2.5vw, 1.75rem);
+  background: var(--sa-bg);
+  color: var(--sa-text);
+  box-sizing: border-box;
+}
+
+.snake-arcade-details__inner {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.75rem, 4vw, 3rem);
+  width: 100%;
+  max-width: var(--sa-content-max);
+  margin-inline: auto;
+}
+
+.snake-arcade-details__hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+.snake-arcade-details__title {
+  margin: 0;
+  color: var(--sa-yellow);
+  font-family: 'Press Start 2P', var(--font-code);
+  font-size: clamp(1.15rem, 3.8vw, 2.35rem);
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+.snake-arcade-details__hero-decor-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.snake-arcade-details__hero-decor-wrap .pixel-decor--row {
+  justify-content: center;
+}
+
+.snake-arcade-details__hero-decor-trailing {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.snake-arcade-details__section {
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 2.75rem);
+  align-items: start;
+}
+
+.snake-arcade-details__intro {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  column-gap: clamp(1.5rem, 5vw, 4rem);
+}
+
+.snake-arcade-details__intro-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.snake-arcade-details__intro-decor {
+  align-self: flex-end;
+}
+
+.snake-arcade-details__heading {
+  margin: 0;
+  color: var(--sa-yellow);
+  font-family: 'Press Start 2P', var(--font-code);
+  font-size: clamp(0.82rem, 2vw, 1.15rem);
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+.snake-arcade-details__heading--right {
+  text-align: right;
+}
+
+.snake-arcade-details__text {
+  margin: 0;
+  color: var(--sa-text);
+  font-family: var(--font-sans);
+  font-size: clamp(0.82rem, 1.25vw, 0.94rem);
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+.snake-arcade-details__architecture {
+  grid-template-columns: minmax(15rem, 42%) minmax(0, 1fr);
+  column-gap: clamp(1.75rem, 5vw, 3.5rem);
+}
+
+.snake-arcade-details__architecture-diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  min-width: 0;
+  padding: clamp(0.85rem, 2vw, 1.15rem);
+  border: 1px solid var(--sa-border);
+  border-radius: 0.2rem;
+  background: linear-gradient(180deg, #141425 0%, var(--sa-panel) 100%);
+}
+
+.snake-arcade-details__flow-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.snake-arcade-details__flow-step--row {
+  flex-direction: row;
+  align-items: stretch;
+  gap: 0.45rem;
+}
+
+.snake-arcade-details__flow-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  width: 100%;
+  min-height: 2.65rem;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--sa-border);
+  border-radius: 0.12rem;
+  background: color-mix(in srgb, var(--sa-bg) 55%, transparent);
+  box-sizing: border-box;
+}
+
+.snake-arcade-details__flow-step--row .snake-arcade-details__flow-box {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.snake-arcade-details__flow-title {
+  color: var(--sa-text);
+  font-family: var(--font-code);
+  font-size: clamp(0.48rem, 0.85vw, 0.62rem);
+  line-height: 1.35;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.snake-arcade-details__flow-subtitle {
+  color: color-mix(in srgb, var(--sa-cyan) 85%, white);
+  font-family: var(--font-code);
+  font-size: clamp(0.44rem, 0.78vw, 0.56rem);
+  line-height: 1.3;
+  text-align: center;
+}
+
+.snake-arcade-details__flow-line {
+  display: block;
+  width: 2px;
+  height: 1.1rem;
+  background: var(--sa-border);
+}
+
+.snake-arcade-details__flow-split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.4rem;
+  width: 100%;
+  margin-top: 0.45rem;
+}
+
+.snake-arcade-details__flow-split span {
+  padding: 0.35rem 0.4rem;
+  border: 1px solid color-mix(in srgb, var(--sa-border) 55%, transparent);
+  border-radius: 0.1rem;
+  background: color-mix(in srgb, var(--sa-bg) 70%, transparent);
+  color: var(--sa-text);
+  font-family: var(--font-code);
+  font-size: clamp(0.42rem, 0.75vw, 0.54rem);
+  line-height: 1.3;
+  text-align: center;
+}
+
+.snake-arcade-details__architecture-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+  padding-top: 0.15rem;
+}
+
+.snake-arcade-details__gameplay {
+  grid-template-columns: minmax(0, 1fr) minmax(11rem, 34%);
+  column-gap: clamp(1.5rem, 4vw, 2.75rem);
+  align-items: center;
+}
+
+.snake-arcade-details__gameplay-main {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: clamp(1rem, 3vw, 2rem);
+  align-items: start;
+  min-width: 0;
+}
+
+.snake-arcade-details__gameplay-decor {
+  margin-top: 0.35rem;
+}
+
+.snake-arcade-details__gameplay-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.snake-arcade-details__game-preview {
+  margin: 0;
+  padding: 0.35rem;
+  border: 2px solid var(--sa-cyan);
+  border-radius: 0;
+  background: #05050c;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--sa-cyan) 35%, transparent),
+    0 0 18px color-mix(in srgb, var(--sa-cyan) 22%, transparent);
+}
+
+.snake-arcade-details__game-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.snake-arcade-details__footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.snake-arcade-details__play-label {
+  margin: 0;
+  color: var(--sa-text);
+  font-family: 'Press Start 2P', var(--font-code);
+  font-size: clamp(0.62rem, 1.2vw, 0.82rem);
+  line-height: 1.65;
+}
+
+.snake-arcade-details__play-link {
+  color: var(--sa-yellow);
+  font-family: 'Press Start 2P', var(--font-code);
+  font-size: clamp(0.62rem, 1.55vw, 1rem);
+  line-height: 1.65;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.snake-arcade-details__credit {
+  margin: 0;
+  color: var(--sa-text);
+  font-family: 'Press Start 2P', var(--font-code);
+  font-size: clamp(0.48rem, 0.95vw, 0.62rem);
+  line-height: 1.65;
+}
+
+.snake-arcade-details__play-link:hover {
+  text-decoration: underline;
+}
+
+.snake-arcade-details__play-link:focus-visible {
+  outline: 2px solid var(--sa-cyan);
+  outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+  .snake-arcade-details__intro,
+  .snake-arcade-details__architecture,
+  .snake-arcade-details__gameplay {
+    grid-template-columns: 1fr;
+  }
+
+  .snake-arcade-details__intro-decor,
+  .snake-arcade-details__gameplay-decor {
+    display: none;
+  }
+
+  .snake-arcade-details__heading--right {
+    text-align: left;
+  }
+
+  .snake-arcade-details__gameplay {
+    align-items: start;
+  }
+
+  .snake-arcade-details__game-preview {
+    max-width: 16rem;
+  }
+
+  .snake-arcade-details__hero-decor-trailing {
+    position: static;
+    transform: none;
+    margin-left: auto;
+  }
+
+  .snake-arcade-details__hero-decor-wrap {
+    justify-content: space-between;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .snake-arcade-details__flow-step--row {
+    flex-direction: column;
+  }
+
+  .snake-arcade-details__flow-split {
+    grid-template-columns: 1fr;
+  }
+}
