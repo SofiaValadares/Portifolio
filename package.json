@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "predev": "node scripts/sync-favicon-html.mjs",
     "build": "tsc -b && vite build",
+    "prebuild": "node scripts/sync-favicon-html.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },

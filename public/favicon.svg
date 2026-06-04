@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Sofia Valadares Portfolio">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Sofia Valadares Portfolio">
   <text
-    x="64"
-    y="86"
+    x="16"
+    y="22"
     text-anchor="middle"
     font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace"
-    font-size="58"
+    font-size="14"
     font-weight="700"
     fill="#1800ad"
   >&lt;S/&gt;</text>

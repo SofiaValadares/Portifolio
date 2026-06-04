@@ -9,14 +9,7 @@ export function IconPortfolio({ className }: IconProps) {
       className={['portfolio-tab-icon', className].filter(Boolean).join(' ')}
       aria-hidden
     >
-      <img
-        className="portfolio-tab-icon__image"
-        src="/favicon-32x32.png?v=2"
-        alt=""
-        width={16}
-        height={16}
-        decoding="async"
-      />
+      <code className="portfolio-tab-icon__code">&lt;S/&gt;</code>
     </span>
   )
 }
