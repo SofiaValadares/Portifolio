@@ -12,8 +12,19 @@ import './contatos.css'
 
 const CAREER_START = new Date(2024, 8, 19) // 19/09/2024
 
+const RESUME_BY_LOCALE = {
+  pt: {
+    href: '/curriculo/Curriculo-PTBR.pdf',
+    download: 'Sofia-Valadares-Cavalcanti-Curriculo.pdf',
+  },
+  en: {
+    href: '/curriculo/Curriculo-EN.pdf',
+    download: 'Sofia-Valadares-Cavalcanti-Resume.pdf',
+  },
+} as const
+
 export default function Contatos({ anchorId, title }: SectionContentProps) {
-  const { t } = useTranslation()
+  const { t, locale } = useTranslation()
   const yearsOfExperience = getYearsOfExperience(CAREER_START)
 
   const openLinkedin = () => {
@@ -29,9 +40,10 @@ export default function Contatos({ anchorId, title }: SectionContentProps) {
   }
 
   const downloadCurriculo = () => {
+    const resume = RESUME_BY_LOCALE[locale]
     const link = document.createElement('a')
-    link.href = '/curriculo.pdf'
-    link.download = 'Sofia-Valadares-Cavalcanti-Curriculo.pdf'
+    link.href = resume.href
+    link.download = resume.download
     link.rel = 'noopener'
     link.click()
   }
