@@ -20,10 +20,14 @@
   border: 2px solid var(--text-secondary-color);
   background: var(--backgroud-primary-color);
   box-sizing: border-box;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 }
 
 .expertisesCard__conteiner:hover {
-  box-shadow: 0 4px 4px 0 color-mix(in srgb, var(--text-dark-color) 28%, transparent);
+  box-shadow: 0 6px 14px 0 color-mix(in srgb, var(--text-dark-color) 22%, transparent);
+  transform: translateY(-3px);
 }
 
 .expertisesCard__header {

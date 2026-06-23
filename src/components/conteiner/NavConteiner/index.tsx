@@ -6,9 +6,8 @@ import {
     type ReactNode,
 } from 'react'
 import {
-    Maximize2,
+    Lock,
     Menu,
-    Minimize2,
     Power,
     X,
 } from 'lucide-react'
@@ -16,7 +15,6 @@ import LanguageToggle from '../../LanguageToggle'
 import type { SectionsPortifolioModel } from '../../../models/SectionsPortifolioModel.ts'
 import { useTranslation } from '../../../i18n/useTranslation'
 import { useNavigateWithTransition } from '../../../hooks/useNavigateWithTransition'
-import type { BrowserWindowControls } from './types'
 import './browserChrome.css'
 
 type BrowserChromeTab = Pick<SectionsPortifolioModel, 'title' | 'anchorId'> & {
@@ -28,16 +26,13 @@ type BrowserChromeTab = Pick<SectionsPortifolioModel, 'title' | 'anchorId'> & {
 interface NavConteinerProps {
     sections: BrowserChromeTab[],
     activeAnchorId: string,
-    windowControls: BrowserWindowControls,
 }
 
 const NavConteiner: React.FC<NavConteinerProps> = (
     {
         sections,
         activeAnchorId,
-        windowControls,
     }) => {
-    const { onMaximize, isMaximized = false } = windowControls
     const navigate = useNavigateWithTransition()
     const { t } = useTranslation()
     const [menuOpen, setMenuOpen] = useState(false)
@@ -114,62 +109,15 @@ const NavConteiner: React.FC<NavConteinerProps> = (
 
     return (
         <header
-            className={[
-                'browser-chrome',
-                isMaximized ? 'browser-chrome--maximized' : '',
-            ]
-                .filter(Boolean)
-                .join(' ')}
+            className="browser-chrome"
             aria-label={t('chrome.browserWindow')}
         >
-            <nav className="browser-chrome__tabs" aria-label={t('chrome.portfolioTabs')}>
-                <div className="browser-chrome__traffic">
-                    <button
-                        type="button"
-                        className="browser-chrome__window-action"
-                        aria-label={isMaximized ? t('chrome.restore') : t('chrome.maximize')}
-                        aria-pressed={isMaximized}
-                        onClick={onMaximize}
-                        title={isMaximized ? t('chrome.restore') : t('chrome.fullscreen')}
-                    >
-                        {isMaximized ? (
-                            <Minimize2 aria-hidden size={16} strokeWidth={2.35} />
-                        ) : (
-                            <Maximize2 aria-hidden size={16} strokeWidth={2.35} />
-                        )}
-                    </button>
-                </div>
-
-                <ul className="browser-chrome__tab-list browser-chrome__tab-list--desktop">
-                    {sections.map((section) => (
-                        <li key={section.anchorId} className="browser-chrome__tab-item">
-                            {renderTabLink(section, 'tab')}
-                        </li>
-                    ))}
-                </ul>
-
-                <div className="browser-chrome__mobile-bar">
-                    <button
-                        type="button"
-                        className="browser-chrome__menu-toggle"
-                        aria-label={menuOpen ? t('chrome.closeMenu') : t('chrome.openMenu')}
-                        aria-expanded={menuOpen}
-                        aria-controls={menuId}
-                        onClick={() => setMenuOpen((open) => !open)}
-                    >
-                        {menuOpen ? (
-                            <X aria-hidden size={18} strokeWidth={2.35} />
-                        ) : (
-                            <Menu aria-hidden size={18} strokeWidth={2.35} />
-                        )}
-                    </button>
-                    <span className="browser-chrome__mobile-title">
-                        {activeSection?.title ?? t('chrome.menu')}
-                    </span>
-                </div>
-
+            <div className="browser-chrome__titlebar">
+                <p className="browser-chrome__window-title">
+                    {t('chrome.portfolio')} — Sofia Valadares
+                </p>
                 <div className="browser-chrome__window-actions">
-                    <LanguageToggle variant="chrome" />
+                    <LanguageToggle />
                     <button
                         type="button"
                         className="browser-chrome__power-action"
@@ -180,32 +128,73 @@ const NavConteiner: React.FC<NavConteinerProps> = (
                         <Power aria-hidden size={18} strokeWidth={2.35} />
                     </button>
                 </div>
+            </div>
 
-                {menuOpen ? (
-                    <>
+            <div className="browser-chrome__toolbar">
+                <nav className="browser-chrome__tabs" aria-label={t('chrome.portfolioTabs')}>
+                    <ul className="browser-chrome__tab-list browser-chrome__tab-list--desktop">
+                        {sections.map((section) => (
+                            <li key={section.anchorId} className="browser-chrome__tab-item">
+                                {renderTabLink(section, 'tab')}
+                            </li>
+                        ))}
+                    </ul>
+
+                    <div className="browser-chrome__mobile-bar">
                         <button
                             type="button"
-                            className="browser-chrome__menu-backdrop"
-                            aria-label={t('chrome.closeMenu')}
-                            onClick={() => setMenuOpen(false)}
-                        />
-                        <div
-                            id={menuId}
-                            className="browser-chrome__mobile-menu"
-                            role="menu"
-                            aria-label={t('chrome.portfolioSections')}
+                            className="browser-chrome__menu-toggle"
+                            aria-label={menuOpen ? t('chrome.closeMenu') : t('chrome.openMenu')}
+                            aria-expanded={menuOpen}
+                            aria-controls={menuId}
+                            onClick={() => setMenuOpen((open) => !open)}
                         >
-                            <ul className="browser-chrome__menu-list">
-                                {sections.map((section) => (
-                                    <li key={section.anchorId}>
-                                        {renderTabLink(section, 'menu-item')}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </>
-                ) : null}
-            </nav>
+                            {menuOpen ? (
+                                <X aria-hidden size={18} strokeWidth={2.35} />
+                            ) : (
+                                <Menu aria-hidden size={18} strokeWidth={2.35} />
+                            )}
+                        </button>
+                        <span className="browser-chrome__mobile-title">
+                            {activeSection?.title ?? t('chrome.menu')}
+                        </span>
+                    </div>
+
+                    {menuOpen ? (
+                        <>
+                            <button
+                                type="button"
+                                className="browser-chrome__menu-backdrop"
+                                aria-label={t('chrome.closeMenu')}
+                                onClick={() => setMenuOpen(false)}
+                            />
+                            <div
+                                id={menuId}
+                                className="browser-chrome__mobile-menu"
+                                role="menu"
+                                aria-label={t('chrome.portfolioSections')}
+                            >
+                                <ul className="browser-chrome__menu-list">
+                                    {sections.map((section) => (
+                                        <li key={section.anchorId}>
+                                            {renderTabLink(section, 'menu-item')}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </>
+                    ) : null}
+                </nav>
+
+                <div className="browser-chrome__addressbar" aria-label={t('chrome.addressBar')}>
+                    <div className="browser-chrome__addressbar-field">
+                        <Lock aria-hidden size={12} strokeWidth={2.35} className="browser-chrome__lock" />
+                        <span className="browser-chrome__url">
+                            sofiavcav.dev/portfolio<span className="browser-chrome__url-hash">#{activeAnchorId}</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
         </header>
     )
 }

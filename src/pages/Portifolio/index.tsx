@@ -8,19 +8,10 @@ import {
   NavConteiner,
   PageConteiner,
 } from '../../components/conteiner'
-import type { BrowserWindowControls } from '../../components/conteiner'
 import { useTranslation } from '../../i18n/useTranslation'
 import { getSectionsPortifolioList } from '../../mocks/portifolio/sectionsPortifolioList'
 
-export type PortifolioProps = {
-  isMaximized?: boolean
-  windowControls: BrowserWindowControls
-}
-
-export default function Portifolio({
-  isMaximized = false,
-  windowControls,
-}: PortifolioProps) {
+export default function Portifolio() {
   const { locale, t } = useTranslation()
   const sectionsPortifolioList = useMemo(
     () => getSectionsPortifolioList(locale),
@@ -105,14 +96,12 @@ export default function Portifolio({
 
   return (
     <PageConteiner
-      isFullscreen={isMaximized}
       onScrollViewportRef={setScrollRoot}
       ariaLabel={t('chrome.portfolio')}
       nav={
         <NavConteiner
           sections={sectionsPortifolioList}
           activeAnchorId={activeAnchorId}
-          windowControls={windowControls}
         />
       }
     >

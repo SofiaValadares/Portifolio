@@ -1,6 +1,5 @@
 import { useNavigateWithTransition } from '../../hooks/useNavigateWithTransition'
 import { useTranslation } from '../../i18n/useTranslation'
-import DesktopDock from './DesktopDock'
 import './desktopHome.css'
 
 export default function DesktopHome() {
@@ -28,7 +27,6 @@ export default function DesktopHome() {
         </li>
       </ul>
       </div>
-      <DesktopDock />
     </main>
   )
 }

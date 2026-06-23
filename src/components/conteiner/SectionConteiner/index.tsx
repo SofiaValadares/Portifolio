@@ -1,3 +1,4 @@
+import { useInView } from '../../../hooks/useInView'
 import './sectionConteiner.css'
 
 interface SectionConteinerProps {
@@ -16,10 +17,17 @@ const SectionConteiner: React.FC<SectionConteinerProps> = (
         blockClass = 'section-format',
         className,
     }) => {
+    const { ref, inView } = useInView()
+
     return (
         <section
+            ref={ref}
             id={sectionId}
-            className={[blockClass, className].filter(Boolean).join(' ')}
+            className={[
+                blockClass,
+                className,
+                inView ? 'is-in-view' : '',
+            ].filter(Boolean).join(' ')}
         >
             <header className={`${blockClass}__header`}>{title}</header>
             <div className={`${blockClass}__body`}>{children}</div>

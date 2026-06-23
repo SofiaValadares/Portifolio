@@ -52,14 +52,3 @@
 .language-toggle--chrome {
   color: var(--primary-bth-text);
 }
-
-.language-toggle--dock {
-  color: var(--dock-icon-color);
-}
-
-.language-toggle__dock-icon {
-  font-family: var(--font-code);
-  font-size: 0.58rem;
-  font-weight: 800;
-  letter-spacing: 0.03em;
-}

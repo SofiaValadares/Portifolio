@@ -14,7 +14,6 @@ import {
   SectionConteiner,
 } from '../../components/conteiner'
 import { TecnologicLabelList } from '../../components/label'
-import type { BrowserWindowControls } from '../../components/conteiner'
 import { useNavigateWithTransition } from '../../hooks/useNavigateWithTransition'
 import { useTranslation } from '../../i18n/useTranslation'
 import {
@@ -27,15 +26,7 @@ import { IconGithub } from '../../components/icons/socialIcons'
 import { ProjectDetailsContent } from './components/detailsSection'
 import './detailsProject.css'
 
-export type DetailsProjectProps = {
-  isMaximized?: boolean
-  windowControls: BrowserWindowControls
-}
-
-export default function DetailsProject({
-  isMaximized = false,
-  windowControls,
-}: DetailsProjectProps) {
+export default function DetailsProject() {
   const { projectId } = useParams()
   const navigate = useNavigateWithTransition()
   const { t, getProjectDescription, getProjectCopyright } = useTranslation()
@@ -111,13 +102,11 @@ export default function DetailsProject({
 
   return (
     <PageConteiner
-      isFullscreen={isMaximized}
       ariaLabel={t('details.ariaLabel', { name: detail.name })}
       nav={
         <NavConteiner
           sections={tabs}
           activeAnchorId="detalhes-projeto"
-          windowControls={windowControls}
         />
       }
     >

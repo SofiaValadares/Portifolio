@@ -7,13 +7,15 @@
   height: 100%;
   min-height: 0;
   min-width: 0;
+  max-width: 100%;
+  max-height: 700px;
   padding: 0 var(--contatos-shadow) var(--contatos-shadow) 0;
   box-sizing: border-box;
 }
 
 .photo-card__photo-wrap {
-  flex: 1 1 55%;
-  min-width: clamp(9rem, 50%, 100%);
+  flex: 1 1 58%;
+  min-width: 0;
   min-height: 0;
   align-self: stretch;
   overflow: hidden;
@@ -26,7 +28,7 @@
   display: block;
   width: 100%;
   height: 100%;
-  min-height: 100%;
+  min-height: 0;
   object-fit: cover;
   object-position: center 18%;
 }
@@ -37,13 +39,14 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  flex: 0 1 auto;
+  flex: 0 0 auto;
   align-self: flex-start;
+  gap: 0.12em;
   min-width: 0;
-  max-width: min(11.5rem, 42%);
+  max-width: min(13.5rem, 44%);
   margin: 0;
-  margin-inline-end: -0.35rem;
-  padding: 10px;
+  margin-inline-end: -0.45rem;
+  padding: clamp(0.65rem, 1.6vh, 1rem) clamp(0.75rem, 1.8vh, 1.1rem);
   background: var(--text-dark-color);
   color: var(--backgroud-primary-color);
 }
@@ -51,34 +54,35 @@
 .photo-card__name-tag-line {
   display: block;
   font-family: var(--font-code);
-  font-size: clamp(0.75rem, 1.4vw, 1.5rem);
-  line-height: 1.15;
+  font-size: clamp(0.82rem, 1.35vh + 0.55vw, 1.35rem);
+  font-weight: 400;
+  line-height: 1.18;
   white-space: nowrap;
-}
-
-.photo-card__name-tag-accent {
-  color: inherit;
 }
 
 @media (max-width: 768px) {
   .photo-card {
     flex-direction: row;
     align-items: stretch;
-    width: min(20rem, 88vw);
-    height: min(72svh, 32rem);
+    width: 100%;
+    height: 100%;
     max-width: 100%;
-    padding: 0;
+    padding: 0 var(--contatos-shadow) var(--contatos-shadow) 0;
   }
 
   .photo-card__photo-wrap {
     flex: 1 1 58%;
-    min-width: clamp(8rem, 52%, 100%);
+    min-width: 0;
     min-height: 0;
   }
 
   .photo-card__name-tag {
-    align-self: flex-start;
-    margin-inline-end: -0.25rem;
-    max-width: min(9rem, 40%);
+    max-width: min(11.5rem, 44%);
+    margin-inline-end: -0.35rem;
+    padding: clamp(0.55rem, 2.5vw, 0.85rem) clamp(0.65rem, 3vw, 0.95rem);
+  }
+
+  .photo-card__name-tag-line {
+    font-size: clamp(0.75rem, 3.2vw, 1rem);
   }
 }

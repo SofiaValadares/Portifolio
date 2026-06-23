@@ -15,10 +15,7 @@ const PhotoCard: React.FC<PhotoCardProps> = (
     return (
         <div className={['photo-card', className].filter(Boolean).join(' ')}>
             <p className="photo-card__name-tag" aria-label={imageAlt}>
-                <span className="photo-card__name-tag-line">
-                    {'<Sof'}
-                    <span className="photo-card__name-tag-accent">/</span>a&gt;
-                </span>
+                <span className="photo-card__name-tag-line">Sofia</span>
                 <span className="photo-card__name-tag-line">Valadares</span>
                 <span className="photo-card__name-tag-line">Cavalcanti</span>
             </p>

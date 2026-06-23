@@ -22,12 +22,8 @@
   justify-content: center;
   align-items: flex-start;
   gap: var(--section-format-gap);
-
-  background: linear-gradient(
-    180deg,
-    var(--page-portfolio-format-bg-top) 0%,
-    var(--page-portfolio-format-bg-bottom) 100%
-  );
+  background: transparent;
+  position: relative;
 }
 
 .section-format__header,

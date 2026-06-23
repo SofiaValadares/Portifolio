@@ -23,14 +23,42 @@
 
   --page-portfolio-format-bg-top: var(--backgroud-primary-color);
   --page-portfolio-format-bg-bottom: var(--backgroud-secondary-color);
+  --portfolio-canvas-gradient: linear-gradient(
+    165deg,
+    var(--page-portfolio-format-bg-top) 0%,
+    color-mix(in srgb, var(--page-portfolio-format-bg-top) 72%, var(--page-portfolio-format-bg-bottom)) 38%,
+    var(--page-portfolio-format-bg-bottom) 100%
+  );
+  --page-portfolio-format-gradient: linear-gradient(
+    180deg,
+    var(--page-portfolio-format-bg-top) 0%,
+    var(--page-portfolio-format-bg-bottom) 100%
+  );
+  --page-portfolio-format-gradient-inverse: linear-gradient(
+    180deg,
+    var(--page-portfolio-format-bg-bottom) 0%,
+    var(--page-portfolio-format-bg-top) 100%
+  );
 
   /* Chrome do navegador */
   --browser-chrome-bg: var(--page-border);
-  --browser-chrome-border: var(--page-border);
+  --browser-chrome-border: color-mix(in srgb, var(--secondaryText) 45%, var(--page-border));
   --browser-chrome-tab-idle: var(--secondaryText);
   --browser-toolbar-bg: var(--primary-bth-backgraud);
+  --browser-addressbar-field: var(--primary-bth-disable-backgraud);
   --browser-window-border: var(--page-border);
   --browser-chrome-block-height: var(--page-conteiner-chrome-height, 2.85rem);
+
+  /* Formas orgânicas — azul suave no topo, base mais clara (sem ficar branca) */
+  --organic-blob-fill-dark: color-mix(in srgb, var(--page-portfolio-format-bg-top) 70%, var(--page-portfolio-format-bg-bottom));
+  --organic-blob-fill-mid: color-mix(in srgb, var(--page-portfolio-format-bg-top) 50%, var(--page-portfolio-format-bg-bottom));
+  --organic-blob-fill-light: color-mix(in srgb, var(--page-portfolio-format-bg-top) 30%, white);
+  --organic-blob-fill-contatos-dark: color-mix(in srgb, var(--page-portfolio-format-bg-top) 62%, var(--page-portfolio-format-bg-bottom));
+  --organic-blob-fill-contatos-mid: color-mix(in srgb, var(--page-portfolio-format-bg-top) 44%, var(--page-portfolio-format-bg-bottom));
+  --organic-blob-fill-contatos-light: color-mix(in srgb, var(--page-portfolio-format-bg-top) 24%, white);
+  --organic-blob-contatos-stroke: color-mix(in srgb, var(--text-color) 24%, var(--page-portfolio-format-bg-top));
+  --organic-blob-stroke: color-mix(in srgb, var(--text-color) 28%, var(--backgroud-primary-color));
+  --organic-blob-stroke-light: color-mix(in srgb, var(--text-color) 34%, var(--backgroud-secondary-color));
 
   /* Overlays (mistura com roxo do DS, sem preto) */
   --overlay-35: color-mix(in srgb, var(--backgroud) 35%, transparent);
