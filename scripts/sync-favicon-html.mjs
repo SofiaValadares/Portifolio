@@ -1,30 +1,30 @@
-import { execFileSync } from 'child_process'
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import { Resvg } from '@resvg/resvg-js'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const publicDir = path.join(root, 'public')
 const logoSvg = path.join(publicDir, 'logo.svg')
 const htmlPath = path.join(root, 'index.html')
-const sourcePng = path.join(publicDir, 'favicon-source.png')
 const png32 = path.join(publicDir, 'favicon-32x32.png')
 const png16 = path.join(publicDir, 'favicon-16x16.png')
+const appleTouchIcon = path.join(publicDir, 'apple-touch-icon.png')
 const pngPath = png32
 
-execFileSync(
-  'npx',
-  ['--yes', '@resvg/resvg-js-cli', logoSvg, sourcePng],
-  { cwd: root, stdio: 'inherit' },
-)
+const svgSource = fs.readFileSync(logoSvg)
 
-execFileSync('sips', ['-z', '32', '32', sourcePng, '--out', png32], { stdio: 'inherit' })
-execFileSync('sips', ['-z', '16', '16', sourcePng, '--out', png16], { stdio: 'inherit' })
-execFileSync('sips', ['-z', '180', '180', sourcePng, '--out', path.join(publicDir, 'apple-touch-icon.png')], {
-  stdio: 'inherit',
-})
+function renderPng(size) {
+  const resvg = new Resvg(svgSource, {
+    fitTo: { mode: 'width', value: size },
+  })
 
-fs.unlinkSync(sourcePng)
+  return resvg.render().asPng()
+}
+
+fs.writeFileSync(png32, renderPng(32))
+fs.writeFileSync(png16, renderPng(16))
+fs.writeFileSync(appleTouchIcon, renderPng(180))
 
 const b64 = fs.readFileSync(pngPath).toString('base64')
 const dataUri = `data:image/png;base64,${b64}`
